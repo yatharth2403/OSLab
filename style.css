@@ -36,6 +36,7 @@ h1{
     margin:10px 0;
 }
 h2,h3{
+    font-size:1.5rem;
     font-weight:300;
     line-height:1.2;
     margin:10px 0;
@@ -46,7 +47,7 @@ p{
     margin:10px 0;
 }
 
-img{
+#icon{
     width:100%;
 }
 
@@ -98,10 +99,6 @@ img{
     left:0;
     /* background:white; */
 }
-/* Stats */
-.stats{
-    padding-top:100px;
-}
 /* .showcase-form{
     position:relative;
     top:60px;
@@ -109,6 +106,27 @@ img{
     width:400px;
     padding: 40px;
 } */
+
+/* Page Content */
+.page-content{
+    padding-top:100px;
+}
+
+/* .page-heading{
+    max-width:500px;
+    margin:auto;
+} */
+.page-content .grid h3{
+    font-size:35px;
+}
+.page-content .grid p{
+    font-size:20px;
+    font-weight:bold;
+} 
+.page-content img{
+    max-width: 100%;
+    height: auto;
+}
 
 /* Utilities */
 .container{
@@ -138,6 +156,26 @@ img{
 .grid-3{
     grid-template-columns:repeat(3, 1fr);
 }
+
+/* Ending */
+.container img{
+    width:30%;
+    height:auto;
+}
+
+.ending {
+    height:500px;
+    background-color: var(--primary-color);
+    color: rgb(252, 252, 252);
+}
+.ending ul{
+    line-height: 2rem;
+    color: rgb(252, 252, 252);
+}
+#contribution{
+    padding-bottom: 1.5rem;;
+}
+
 
 /* Margin */
 .my-1{
