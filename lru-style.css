@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
+
+:root{
+    --primary-color:rgb(170, 142, 247);
+    --secondary-color:#333;
+}
+
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+
+body{
+    font-family:'Lato', open-serif;
+    color:var(--secondary-color);
+    line-height:1.6;
+}
+
+ul{
+    list-style-type:none;
+}
+
+a{
+    text-decoration:none;
+    color: var(--secondary-color);
+}
+
+h1{
+    font-weight:700;
+    line-height:1.2;
+    margin:10px 0;
+}
+h2,h3{
+    font-size: 1.5rem;
+    font-weight:300;
+    line-height:1.2;
+    margin:10px 0;
+}
+
+p{
+    font-size:1.5rem;
+    margin:10px 0;
+}
+
+img{
+    width:80%;
+    height:auto;
+}
+
+.navbar{
+    background-color:var(--primary-color);
+    color:var(--secondary-color);
+    height:70px;
+}
+.navbar a{
+    color:var(--secondary-color);
+    padding: 10px;
+    margin:0 5px;
+}
+.navbar a:hover{
+    border-bottom: 2px var(--secondary-color) solid;
+}
+.navbar ul{
+    display:flex;
+}
+.navbar .flex{
+    justify-content:space-between;
+}
+
+
+/* ShowCase */
+.showcase{
+    height:100%;
+    background-color:var(--primary-color);
+    color:var(--secondary-color);
+    position:relative;
+}
+.showcase h1{
+    font-size:4.5rem;
+}
+.showcase p{
+    margin:20px 0;
+}
+.showcase .grid{
+    /* overflow:visible; */
+    grid-template-columns: 44% 55%;
+    padding-top:40px;
+    padding-bottom:40px;
+    grid-gap:1%;
+}
+.showcase::before,
+.showcase::after{
+    content:'';
+    position:absolute;
+    height:70px;
+    bottom:-70px;
+    right:0;
+    left:0;
+}
+
+.container{
+    max-width:1400px;
+    margin: 0 auto;
+    overflow:auto;
+    padding:0 40px;
+}
+.flex{
+    display: flex;
+    justify-content:space-around;
+    align-items:center;
+    height:100%;
+}
+.grid{
+    display:grid;
+    /* grid-template-columns:repeat(2,1fr); */
+    justify-content:center;
+    align-items:center;
+    padding-top: 40px;
+}
+
+/* Example */
+#example-heading{
+    font-size:2.5rem;
+}
+
+.example{
+    text-align: left;
+
+}
