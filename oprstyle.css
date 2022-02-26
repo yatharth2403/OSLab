@@ -73,7 +73,7 @@ p{
 
 /* ShowCase */
 .showcase{
-    height:400px;
+    height:100%;
     background-color:var(--primary-color);
     color:var(--secondary-color);
     position:relative;
