@@ -89,7 +89,14 @@ p{
 .text-center{
     text-align:center;
 }
-
+.middlename{
+    color: white;
+    font-size: 5em;
+    text-shadow: 10px 10px 10px black;
+    text-align: center;
+    padding: 150px 0;
+    justify-content: c;
+}
 
 .flex{
     display:flex;
