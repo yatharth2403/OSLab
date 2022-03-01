@@ -107,3 +107,9 @@ p{
 .my-4{
     margin:1rem 0;
 }
+.types{
+    color: black;
+    font-size: 2em ;
+    margin: 40px;
+    padding: 0;
+}
