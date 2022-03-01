@@ -6,83 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Home</title>
+    <title>PRA | Page Replacement Algorithms</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- NAVBAR -->
     <div class="navbar">
         <div class="container flex">
-            <h1 class="logo">OS Project</h1>
+            <h1><a href="home.html" title="Home">OS Project</a></h1>
                 <nav>
                     <ul>                         
                         <li class>                                                      
-                            <a href="aboutUs.html" " title="About Us">About Us</a>
+                            <a href="fifo.html" title="FIFO">FIFO</a> 
                         </li>                
                         <li class>            
-                            <a href="item2.html" title="Item 2"> Item 2</a>
+                            <a href="lifo.html" title="LIFO">LIFO</a>
+                        </li>
+                        <li class>                                                      
+                            <a href="lru.html" title="LRU">LRU</a> 
                         </li>
                         <li class>            
-                            <a href="item3.html" title="Item 3"> Item 3 </a>
+                            <a href="opr.html" title="OPR">OPR</a>
                         </li>
                     </ul>
                 </nav>
         </div>
     </div>
+    
+    <hr>
 
     <!-- ShowCase -->
     <section class="showcase">
-        <div class="container grid">
+        <div class="container">
             <div class="showcase-text">
                 <h1 id="heading">Page Replacement Algorithms</h1>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed in exercitationem qui,
-                    sunt placeat distinctio maxime! Rerum ullam eius tenetur incidunt nisi culpa ipsam 
-                    vero quaerat architecto dolore,corporis molestias.
+                <p class="lrspc">
+                    Memory management is a critical topic in an operating system. It allows you to control and coordinate computer memory in real time. Memory management allows you to allocate a specific amount of memory to a program when it asks for it. It also automatically deallocates memory from programs that are no longer in use. Modern computer operating systems rely on virtual memory to function (OS). For virtual memory management, an operating system employs a mechanism known as paging (VMM). 
                 </p>
             </div>   
-            <img src="image.jpg" id="icon" alt="image">
+            <!--<img src="image.jpg" id="icon" alt="image">-->
         </div>
     </section>
             
     <!-- Page Content -->
     <section class="page-content">
         <div class="container">
-            <h1 class="page-heading text-center my-1">
-                    What are Page Replacement Algorithms?      
-            </h1>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, possimus laboriosam reiciendis laudantium repellat accusamus tenetur cumque ipsam sint quas aut non aliquam maiores odio placeat, praesentium numquam voluptatum? Vel?
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque fuga assumenda perferendis nemo recusandae? Cum, ad. Quasi sequi corrupti dolore tenetur consequuntur dolores qui, iusto nisi quaerat molestiae pariatur optio.
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, eius ut eaque quidem repellendus deserunt iste? Accusantium, unde nulla quasi praesentium inventore consequuntur! Nobis id facilis amet rerum, consectetur vel!
-            </p>
-            <div class="grid grid-3 text-center my-4 p-4">
-                <div>
-                    <a href="fifo.html"><h3>FIFO</h3></a>
-                </div>
-                <div>
-                    <a href="lru.html"><h3>LRU</h3></a>
-                </div>
-                <div>
-                    <a href="opr.html"><h3>OPR</h3></a>
-                </div>
-            </div>       
+            <h2 class="text-center py-1 pu">Paging</h2>
+                <p class="lrspc">
+                    Paging is one of the techniques used in memory management. Reading data from and writing data to secondary storage is known as paging. Paging divides processes into pages and main memory into frames. When a process' pages are needed, they are loaded into main memory frames. 
+                </p>
+            <h2 class="text-center py-1 pu">Page Fault</h2>
+                <p class="lrspc">
+                    A page fault occurs when the CPU addresses a page that is not present in the main memory. When the CPU generates the reference of a page, if there is any vacant frame available in the main memory then the page is loaded in that vacant frame. In another case, if there is no vacant frame available in the main memory, it is required to replace one of the pages in the main memory with the page referenced by the CPU. A high number of page faults can slow down the whole system. Although page faults are common in modern days operating systems, a large number of page faults may cause the program to crash or terminate unexpectedly.
+                </p>
+                <h2 class="text-center py-1 pu">What are Page Replacement Algorithms?</h2>
+                <p class="lrspc">
+                Page replacement algorithms are an important part of virtual memory management and it helps the OS to decide which memory page can be moved out, making space for the currently needed page. The Page Replacement Algorithm is utilized when a page fault occurs. It is used to decide which page will be replaced to allocate memory to the current referenced page. When the page chosen for replacement is paged out and referenced again, it must read in from disk, which necessitates I/O completion. The quality of the page replacement method is determined by this process: the less time spent waiting for page-ins, the better. Different Page Replacement Algorithms suggest different ways to decide which page is to be replaced. The main objective of all the Page replacement algorithms is to decrease the maximum number of page faults.
+                </p>
+            <ul class="pu">
+                <li class="btn btn-1"><a href="fifo.html"><h3>FIFO</h3></a></li>
+                <li class="btn btn-1"><a href="lifo.html"><h3>LIFO</h3></a></li>
+                <li class="btn btn-1"><a href="lru.html"><h3>LRU</h3></a></li>
+                <li class="btn btn-1"><a href="opr.html"><h3>OPR</h3></a></li>
+            </ul>       
         </div>
-    </section>
-
-    <!-- Ending -->
-    <section class="ending grid-3 p-3">
-        <div class="container">
-            <h2 class="logo" id="contribution">Contribution By</h2>
-                <ul>                         
-                    <li> Name1</li>                
-                    <li> Name2</li>
-                    <li> Name3</li>
-                    <li> Name4</li>
-                    <li> Name5</li>
-                    <li> Name6</li>
-                </ul>
-        </div>
+        <div class="container"></div>
     </section>
 </body>
 </html>
