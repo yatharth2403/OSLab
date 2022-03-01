@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap%27');
 
 :root{
     --primary-color:rgb(170, 142, 247);
@@ -13,13 +14,16 @@
 }
 
 body{
-    font-family:'Lato', open-serif;
+    font-family:'Poppins';
     color:var(--secondary-color);
     line-height:1.6;
 }
-
+.heading{
+    font-weight: 900;
+}
 ul{
     list-style-type:none;
+    line-height: 2;
 }
 
 a{
@@ -27,26 +31,34 @@ a{
     color: var(--secondary-color);
 }
 
-h1{
-    font-weight:700;
-    line-height:1.2;
-    margin:10px 0;
+h1,h2{
+    font-family: 'Lato';
+    font-weight: 900;
+    font-size: 2rem;
 }
-h2,h3{
-    font-size: 1.5rem;
-    font-weight:300;
+h3{
+    font-size:2rem;
+    font-weight:250;
     line-height:1.2;
-    margin:10px 0;
+    margin:30px 0;
 }
 
 p{
     font-size:1.5rem;
     margin:10px 0;
 }
+hr{
+    display: block;
+    margin-top: 0em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 0px;
+}
 
-img{
-    width:80%;
-    height:auto;
+#icon{
+    width:100%;
 }
 
 .navbar{
@@ -69,7 +81,6 @@ img{
     justify-content:space-between;
 }
 
-
 /* ShowCase */
 .showcase{
     height:100%;
@@ -77,18 +88,17 @@ img{
     color:var(--secondary-color);
     position:relative;
 }
+
 .showcase h1{
-    font-size:4.5rem;
+    font-size:96px;
 }
 .showcase p{
     margin:20px 0;
 }
 .showcase .grid{
     /* overflow:visible; */
-    grid-template-columns: 44% 55%;
+    grid-template-columns: 60% 40%;
     padding-top:40px;
-    padding-bottom:40px;
-    grid-gap:1%;
 }
 .showcase::before,
 .showcase::after{
@@ -98,34 +108,167 @@ img{
     bottom:-70px;
     right:0;
     left:0;
+    /* background:white; */
 }
 
+/* Page Content */
+.page-content{
+    padding-top:0px;
+    padding-bottom: 50px;
+}
+.page-content ul{
+    list-style-type: decimal;
+}   
+
+.dis{
+    width: 100vw;
+    height: 100vh;
+}
+
+.page-content .grid h3{
+    font-size:35px;
+}
+.page-content .grid p{
+    font-size:20px;
+    font-weight:bold;
+} 
+
+/* Utilities */
 .container{
-    max-width:1400px;
+    max-width:100%;
     margin: 0 auto;
     overflow:auto;
     padding:0 40px;
 }
+
+.text-center{
+    text-align:center;
+}
+
 .flex{
-    display: flex;
-    justify-content:space-around;
+    display:flex;
+    justify-content:center;;
     align-items:center;
     height:100%;
 }
+.size-2{
+    font-size: 1.6rem;
+}
+
+.f2{
+    font-weight: 50;
+}
+
+.lrspc{
+    margin: 0 50px;
+}
+
 .grid{
     display:grid;
-    /* grid-template-columns:repeat(2,1fr); */
+    grid-template-columns:repeat(2, 1fr);
     justify-content:center;
     align-items:center;
-    padding-top: 40px;
+}
+.grid-3{
+    grid-template-columns:repeat(3, 1fr);
+}
+.wspc{
+    letter-spacing: 2px;
 }
 
-/* Example */
-#example-heading{
-    font-size:2.5rem;
+/* Ending */
+.container img{
+    width:30%;
+    height:auto;
 }
 
-.example{
-    text-align: left;
+.ending {
+    height:100%;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+.ending ul{
+    line-height: 2rem;
+    color: var(--secondary-color);
+}
+#contribution{
+    padding-bottom: 1.5rem;
+}
+.logo{
+    font-weight: 500;
+    font-size: 2.5rem;
+}
+.slide-right {
+    width: 100%;
+    overflow: hidden;
+}
+  
+.slide-right h1 {
+    animation: 2s slide-right;
+    animation-delay: 0.5s;
+}
+  
+@keyframes slide-right {
+    from {
+      margin-left: -1000px;
+    }
+  
+    to {
+      margin-left: 0%;
+    }
+}
 
+/* Margin */
+.my-1{
+    margin:1rem 0;
+}
+.my-2{
+    margin:1.5rem 0;
+}
+.my-3{
+    margin:2rem 0;
+}
+.my-4{
+    margin:3rem 0;
+}
+.m-1{
+    margin:1rem ;
+}
+.m-2{
+    margin:1.5rem;
+}
+.m-3{
+    margin:2rem;
+}
+.m-4{
+    margin:3rem;
+}
+
+/* Padding */
+.py-1{
+    padding:1rem 0;
+}
+.py-2{
+    padding:1.5rem 0;
+}
+.py-3{
+    padding:2rem 0;
+}
+.p-4{
+    padding:3rem;
+}
+.p-1{
+    padding:1rem;
+}
+.p-2{
+    padding:1.5rem ;
+}
+.p-3{
+    padding:2rem ;
+}
+.p-4{
+    padding:3rem ;
+}
+.pu{
+    padding-top: 2.5rem;
 }
