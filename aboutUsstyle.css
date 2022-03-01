@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap%27');
 
 *{
     box-sizing: border-box;
@@ -9,7 +10,7 @@
 }
 
 body{
-    font-family:'Lato';
+    font-family:'Poppins';
     color: #333;
     line-height:1.6;
 }
@@ -24,13 +25,12 @@ a{
     text-decoration:none;
     color: #333;
 }
-h1{
-    font-size:2rem;
-    font-weight: 500;
-    line-height:1.2;
-    margin:10px 0;
+h1,h2{
+    font-family: 'Lato';
+    font-weight: 900;
+    font-size: 2rem;
 }
-h2,h3{
+h3{
     font-size:2rem;
     font-weight:250;
     line-height:1.2;
