@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 :root{
     --primary-color:rgb(170, 142, 247);
@@ -11,9 +11,12 @@
     padding:0;
     margin:0;
 }
-
+h1,h2{
+    font-family:'Lato';
+    /* font-weight: 900; */
+}
 body{
-    font-family:'Lato', open-serif;
+    font-family:'Poppins', open-serif;
     color:var(--secondary-color);
     line-height:1.6;
 }
@@ -21,6 +24,7 @@ body{
     font-weight: 900;
 }
 ul{
+    line-height: 2; /*changed*/
     list-style-type:none;
 }
 
@@ -36,15 +40,24 @@ h1{
     margin:10px 0;
 }
 h2,h3{
-    font-size:1.5rem;
-    font-weight:300;
+    font-size:2rem;
+    font-weight:250;
     line-height:1.2;
-    margin:10px 0;
+    margin:30px 0;
 }
 
 p{
     font-size:1.5rem;
     margin:10px 0;
+}
+hr{
+    display: block;
+    margin-top: 0em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 0px;
 }
 
 #icon{
@@ -103,8 +116,16 @@ p{
 
 /* Page Content */
 .page-content{
-    padding-top:50px;
+    padding-top:0px;
     padding-bottom: 50px;
+}
+.page-content ul{
+    list-style-type: decimal;
+}   
+
+.dis{
+    width: 100vw;
+    height: 100vh;
 }
 
 .page-content .grid h3{
@@ -114,14 +135,10 @@ p{
     font-size:20px;
     font-weight:bold;
 } 
-.page-content img{
-    max-width: 100%;
-    height: auto;
-}
 
 /* Utilities */
 .container{
-    max-width:1400px;
+    max-width:100%;
     margin: 0 auto;
     overflow:auto;
     padding:0 40px;
@@ -136,6 +153,17 @@ p{
     justify-content:center;;
     align-items:center;
     height:100%;
+}
+
+.size-1{                   /*changed in li at last*/
+    font-size: 1.3rem;
+}
+.size-2{
+    font-size: 1.6rem;
+}
+
+.lrspc{
+    margin: 0 50px;
 }
 
 .grid{
@@ -155,7 +183,7 @@ p{
 }
 
 .ending {
-    height:500px;
+    height:100%;
     background-color: var(--primary-color);
     color: var(--secondary-color);
 }
