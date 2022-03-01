@@ -38,7 +38,7 @@
     <!-- ShowCase -->
     <section class="showcase">
         <div class="container">
-            <div class="showcase-text">
+            <div class="showcase-text slide-right">
                 <h1 id="heading">Page Replacement Algorithms</h1>
                 <p class="lrspc">
                     Memory management is a critical topic in an operating system. It allows you to control and coordinate computer memory in real time. Memory management allows you to allocate a specific amount of memory to a program when it asks for it. It also automatically deallocates memory from programs that are no longer in use. Modern computer operating systems rely on virtual memory to function (OS). For virtual memory management, an operating system employs a mechanism known as paging (VMM). 
@@ -51,15 +51,15 @@
     <!-- Page Content -->
     <section class="page-content">
         <div class="container">
-            <h2 class="text-center py-1 pu">Paging</h2>
+            <h2 class="text-center py-1 pu wspc">Paging</h2>
                 <p class="lrspc">
                     Paging is one of the techniques used in memory management. Reading data from and writing data to secondary storage is known as paging. Paging divides processes into pages and main memory into frames. When a process' pages are needed, they are loaded into main memory frames. 
                 </p>
-            <h2 class="text-center py-1 pu">Page Fault</h2>
+            <h2 class="text-center py-1 pu wspc">Page Fault</h2>
                 <p class="lrspc">
                     A page fault occurs when the CPU addresses a page that is not present in the main memory. When the CPU generates the reference of a page, if there is any vacant frame available in the main memory then the page is loaded in that vacant frame. In another case, if there is no vacant frame available in the main memory, it is required to replace one of the pages in the main memory with the page referenced by the CPU. A high number of page faults can slow down the whole system. Although page faults are common in modern days operating systems, a large number of page faults may cause the program to crash or terminate unexpectedly.
                 </p>
-                <h2 class="text-center py-1 pu">What are Page Replacement Algorithms?</h2>
+                <h2 class="text-center py-1 pu wspc">What are Page Replacement Algorithms?</h2>
                 <p class="lrspc">
                 Page replacement algorithms are an important part of virtual memory management and it helps the OS to decide which memory page can be moved out, making space for the currently needed page. The Page Replacement Algorithm is utilized when a page fault occurs. It is used to decide which page will be replaced to allocate memory to the current referenced page. When the page chosen for replacement is paged out and referenced again, it must read in from disk, which necessitates I/O completion. The quality of the page replacement method is determined by this process: the less time spent waiting for page-ins, the better. Different Page Replacement Algorithms suggest different ways to decide which page is to be replaced. The main objective of all the Page replacement algorithms is to decrease the maximum number of page faults.
                 </p>
