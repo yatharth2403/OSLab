@@ -36,11 +36,11 @@
     <!--SHOWCASE-->
     <section class="showcase">
         <div class="container">
-            <div class="showcase-text">
+            <div class="showcase-text slide-right">
                 <h1 id="heading">Least Recently Used</h1>
                 <p class="lrspc">
                     The LRU page replacement method maintains track of how many times a page is used during a set period of time.  
-                    When it’s time to replace a page, it replaces the page that is least recently used. It is based on the locality of reference concept,
+                    When it's time to replace a page, it replaces the page that is least recently used. It is based on the locality of reference concept,
                     which states that a program has a tendency to repeatedly access the same set of memory locations over a short period of time. 
                     As a result, pages that have been widely utilized in the past are likely to be heavily used in the future as well.
                 </p>
@@ -52,25 +52,25 @@
        <!-- Page Content -->
        <section class="page-content">
         <div class="container">
-            <h2 id="adv" class="text-center">Advantages</h2>
+            <h2 class="text-center pu wspc">Advantages</h2>
                 <ul>
                     <li class="size-2 lrspc">Often more efficient than other algorithms</li>
                     <li class="size-2 lrspc">It helps in Full analysis.</li>
                 </ul>
                 <div class="div disadv">
-                    <h2 id="disadv" class="text-center">Disadvantages</h2>
+                    <h2 class="text-center pu wspc">Disadvantages</h2>
                     <ul>
                         <li class="size-2 lrspc">It necessitates the implementation of additional data structures.</li>
                         <li class="size-2 lrspc">It is more expensive and complex.</li>                   
                     </ul> 
                 </div>
             
-            <h2 class="text-center">Example</h2>
+            <h2 class="text-center pu wspc">Example</h2>
                 <p class="lrspc">Example: Consider the Pages referenced by the CPU in the order are 6, 7, 8, 9, 6, 7, 1, 6, 7, 8, 9, 1, 7, 9, 6</p>
                 <img class="dis" src="lruex.png" id="icon" alt="image">
                 <p class="lrspc">
                     As in the above figure shown, let there are 3 frames in the memory.
-                    <ul class="size-1 lrspc">
+                    <ul class="size-2 lrspc">
                         <li>First, all the frames are empty. 6, 7, 8 are allocated to the frames, the page fault occurs.   </li>
                         <li>Now, 9 comes and replaces 6 which is used the earliest, page fault occurs.</li>
                         <li>Then, 6 replaces 7, 7 replaces 8, 1 replaces 9, page fault occurs.</li>
