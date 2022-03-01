@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap%27');
 
 :root{
     --primary-color:rgb(170, 142, 247);
@@ -11,12 +12,9 @@
     padding:0;
     margin:0;
 }
-h1,h2{
-    font-family:'Lato';
-    /* font-weight: 900; */
-}
+
 body{
-    font-family:'Poppins', open-serif;
+    font-family:'Poppins';
     color:var(--secondary-color);
     line-height:1.6;
 }
@@ -24,8 +22,8 @@ body{
     font-weight: 900;
 }
 ul{
-    line-height: 2; /*changed*/
     list-style-type:none;
+    line-height: 2;
 }
 
 a{
@@ -33,13 +31,12 @@ a{
     color: var(--secondary-color);
 }
 
-h1{
-    font-size:2rem;
-    font-weight: 500;
-    line-height:1.2;
-    margin:10px 0;
+h1,h2{
+    font-family: 'Lato';
+    font-weight: 900;
+    font-size: 2rem;
 }
-h2,h3{
+h3{
     font-size:2rem;
     font-weight:250;
     line-height:1.2;
@@ -154,12 +151,12 @@ hr{
     align-items:center;
     height:100%;
 }
-
-.size-1{                   /*changed in li at last*/
-    font-size: 1.3rem;
-}
 .size-2{
     font-size: 1.6rem;
+}
+
+.f2{
+    font-weight: 50;
 }
 
 .lrspc{
@@ -174,6 +171,9 @@ hr{
 }
 .grid-3{
     grid-template-columns:repeat(3, 1fr);
+}
+.wspc{
+    letter-spacing: 2px;
 }
 
 /* Ending */
@@ -198,7 +198,25 @@ hr{
     font-weight: 500;
     font-size: 2.5rem;
 }
-
+.slide-right {
+    width: 100%;
+    overflow: hidden;
+}
+  
+.slide-right h1 {
+    animation: 2s slide-right;
+    animation-delay: 0.5s;
+}
+  
+@keyframes slide-right {
+    from {
+      margin-left: -1000px;
+    }
+  
+    to {
+      margin-left: 0%;
+    }
+}
 
 /* Margin */
 .my-1{
@@ -250,4 +268,7 @@ hr{
 }
 .p-4{
     padding:3rem ;
+}
+.pu{
+    padding-top: 2.5rem;
 }
