@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIFO | Page Repacement Algorithms</title>
+    <link rel="stylesheet" href="lifostyle.css">
+</head>
+<body>
+    <!--NAVBAR-->
+    <div class="navbar">
+        <div class="container flex">
+            <h1 class="logo"><a href="home.html" title="Home">OS Project</a></h1>
+                <nav>
+                    <ul>
+                        <li class>
+                            <a href="index.html">PRA</a>  
+                        </li>             
+                        <li class>            
+                            <a href="fifo.html" title="FIFO">FIFO</a>
+                         </li>
+                         <li class>                                                      
+                            <a href="lru.html" title="LRU">LRU</a> 
+                        </li>
+                         <li class>            
+                            <a href="opr.html" " title="OPR">OPR</a>
+                        </li>                        
+                    </ul>
+                </nav>
+        </div>
+    </div>
+
+    <hr>
+
+    <!--SHOWCASE-->
+    <section class="showcase">
+        <div class="container">
+            <div class="showcase-text slide-right">
+                <h1 id="heading">Last In First Out</h1>
+                <p class="lrspc">
+                    The requested page is substituted for the most recent page in this algorithm. This is usually accomplished via a stack, in which the newest page is at the top of a stack of pages currently in memory. The page at the top of the stack is replaced whenever a page fault occurs. 
+                </p>
+            </div>   
+            <!--<img src="image.jpg" id="icon" alt="image">-->
+        </div>
+    </section>
+
+    <!--Page Content-->
+    <section class="page-content">
+        <div class="container">
+            <h2 class="text-center">Advantages</h2>
+            <ul>
+                <li class="size-2 lrspc">Simple to understand</li>
+                <li class="size-2 lrspc">Easy to implement</li>
+                <li class="size-2 lrspc">No overhead</li>
+            </ul>    
+            <h2 class="text-center">Disadvantages</h2>
+            <ul>
+                <li class="size-2 lrspc">Does not consider Locality principle, hence may produce worst performance</li>
+                <li class="size-2 lrspc">The old pages may reside in memory forever even if they are not used</li>
+            </ul> 
+            <h2 class="text-center">Example</h2>
+                <p class="lrspc">Consider the Pages referenced by the CPU in the order are 3, 1, 2, 1, 6, 5, 1, 3</p>
+                <img class="dis" src="lifoex.jpg" id="icon" alt="image">
+                <ul>
+                    <li class="size-2 lrspc">As in the above figure shown, let there are 3 frames in the memory</li>
+                    <li class="size-2 lrspc">6, 7, 8 are allocated to the vacant slots as they are not in memory</li>
+                    <li class="size-2 lrspc">When 9 comes page fault occurs, it replaces 6 which is the oldest in memory or front element of the queue
+                    </li>
+                    <li class="size-2 lrspc">Then 6 comes page fault occurs, it replaces 7 which is the oldest page in memory now</li>
+                    <li class="size-2 lrspc">Similarly, 7 replaces 8, 1 replaces 9</li>
+                    <li class="size-2 lrspc">Then 6 comes which is already in memory page hit occurs</li>
+                    <li class="size-2 lrspc">Then 7 comes page hit occurs</li>
+                    <li class="size-2 lrspc">Then 8 replaces 6, 9 replaces 7. Then 1 comes page hit occurs</li>
+                </ul>
+                <p class="lrspc"> Number of Page Faults = 9</p>
+        </div>
+    </section>  
+</body>
+</html>
