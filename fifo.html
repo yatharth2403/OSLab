@@ -11,61 +11,69 @@
     <!--NAVBAR-->
     <div class="navbar">
         <div class="container flex">
-            <h1 class="logo">FIFO</h1>
+            <h1><a href="home.html" title="Home">OS Project</a></h1>
                 <nav>
                     <ul>
                         <li class>
-                            <a href="index.html">Home</a>
+                            <a href="index.html">PRA</a>  
+                        </li>             
+                        <li class>            
+                            <a href="lifo.html" title="LIFO">LIFO</a>
                         </li>
+                        <li class>                                                      
+                            <a href="lru.html" title="LRU">LRU</a> 
+                        </li>
+                        <li class>            
+                            <a href="opr.html" " title="OPR">OPR</a>
+                        </li>                        
                     </ul>
                 </nav>
         </div>
     </div>
 
+    <hr>
+
     <!--SHOWCASE-->
-    <section class="showcase fifo">
-        <div class="container grid">
-            <div class="showcase-text">
+    <section class="showcase">
+        <div class="container">
+            <div class="showcase-text slide-right">
                 <h1 id="heading">First In First Out</h1>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed in exercitationem qui,
-                    sunt placeat distinctio maxime! Rerum ullam eius tenetur incidunt nisi culpa ipsam 
-                    vero quaerat architecto dolore,corporis molestias.
+                <p class="lrspc f2">
+                    The FIFO algorithm keeps track of all the pages in memory by maintaining a queue, with the most recent arrival at the back (tail of the queue) and the oldest arrival at the front (head of the queue). A page will be replaced when the system requires more space. When using FIFO, the oldest page at the front of the queue is chosen for replacement. 
                 </p>
-                <!-- <img src="image.jpg" id="icon" alt="image">-->
-            </div>
+            </div>   
+            <!--<img src="image.jpg" id="icon" alt="image">-->
         </div>
     </section>
 
-    <!--Page Content-->
-    <section class="page-content">
+       <!-- Page Content -->
+       <section class="page-content">
         <div class="container">
-            <h1 class="page-heading text-center my-1">Heading XYZ</h1>
-            <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed in exercitationem qui,
-                sunt placeat distinctio maxime! Rerum ullam eius tenetur incidunt nisi culpa ipsam 
-                vero quaerat architecto dolore,corporis molestias. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed in exercitationem qui,
-                sunt placeat distinctio maxime! Rerum ullam eius tenetur incidunt nisi culpa ipsam 
-                vero quaerat architecto dolore,corporis molestias. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed in exercitationem qui,
-                sunt placeat distinctio maxime! Rerum ullam eius tenetur incidunt nisi culpa ipsam 
-                vero quaerat architecto dolore,corporis molestias.
-            </p>
-        </div>
-    </section>  
-    
-      <!-- Ending -->
-      <section class="ending grid-3 p-3">
-        <div class="container">
-            <h2 class="logo" id="contribution">Contribution By</h2>
-                <ul>                         
-                    <li> Name1</li>                
-                    <li> Name2</li>
-                    <li> Name3</li>
-                    <li> Name4</li>
-                    <li> Name5</li>
-                    <li> Name6</li>
+            <h2 class="text-center wspc">Advantages</h2>
+                <ul>
+                    <li class="size-2 lrspc">It is a low-overhead algorithm</li>
+                    <li class="size-2 lrspc">Implementation is simple and easy</li>
+                </ul> 
+            <h2 class="text-center wspc">Disadvantages</h2>
+                <ul>
+                    <li class="size-2 lrspc">Instead of using the frequency of the last used time, this technique simply replaces the Oldest Page.</li>
+                    <li class="size-2 lrspc">Increase in the number of page faults as page frames increase (Belady's anomaly).</li>
                 </ul>
+            <h2 class="text-center wspc">Example</h2>
+                <p class="lrspc">Consider the Pages referenced by the CPU in the order are 6, 7, 8, 9, 6, 7, 1, 6, 7, 8, 9, 1</p>
+                <img class="dis" src="fifoex.png" id="icon" alt="image">
+                <ul>
+                    <li class="size-2 lrspc">As in the above figure shown, let there are 3 frames in the memory.</li>
+                    <li class="size-2 lrspc">Initially, since all the slots are empty, page 3,1,2 causes a page fault and takes the empty slots.
+                   </li>
+                    <li class="size-2 lrspc">When page 1 comes, it is in the memory and no page fault occurs.</li>
+                    <li class="size-2 lrspc">When page 6 comes, the page fault occurs, and page 2 is removed as it is on the top of the stack and is the newest page.</li>
+                    <li class="size-2 lrspc">When page 5 comes, it is not in the memory, which causes a page fault, and hence page 6 is removed being on top of the stack.</li>
+                    <li class="size-2 lrspc">When page 1 and page 3 come, they are in memory already, hence no page fault occurs.</li>
+                </ul>
+                <p class="lrspc"> Number of Page Faults = 5</p>
         </div>
-    </section>
+        <div class="container"></div>
+    </section> 
 </body>
 </html>
