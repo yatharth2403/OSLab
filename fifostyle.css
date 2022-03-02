@@ -12,6 +12,12 @@
     padding:0;
     margin:0;
 }
+.tablecss{
+    padding:5px;
+    margin: 20px;
+    font-size: 2em;
+}
+
 
 body{
     font-family:'Poppins';
