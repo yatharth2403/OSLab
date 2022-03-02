@@ -8,29 +8,34 @@
      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>PRA | Page Replacement Algorithms</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="screen" />
+
 </head>
 <body>
     <!-- NAVBAR -->
     <div class="navbar">
-        <div class="container flex">
+        <!-- <div class="container flex"> -->
+            <span class="navbar-toggle" id="js-navbar-toggle">
+                <i class="fa fa-bars"></i>
+            </span>
             <h1><a href="home.html" title="Home">OS Project</a></h1>
                 <nav>
-                    <ul>                         
-                        <li class>                                                      
+                    <ul class = "nav-opt" id="js-menu">                         
+                        <li>                                                      
                             <a href="fifo.html" title="FIFO">FIFO</a> 
                         </li>                
-                        <li class>            
+                        <li>            
                             <a href="lifo.html" title="LIFO">LIFO</a>
                         </li>
-                        <li class>                                                      
+                        <li>                                                      
                             <a href="lru.html" title="LRU">LRU</a> 
                         </li>
-                        <li class>            
+                        <li>            
                             <a href="opr.html" title="OPR">OPR</a>
                         </li>
                     </ul>
                 </nav>
-        </div>
+        <!-- </div> -->
     </div>
 
     <!-- ShowCase -->
@@ -76,5 +81,6 @@
         </div>
         <div class="container"></div>
     </section>
+    <script src="homeapp.js"></script>
 </body>
 </html>
