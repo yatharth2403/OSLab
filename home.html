@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Page Repacement Algorithms</title>
     <link rel="stylesheet" href="homestyle.css">
+ 
     <style>
         body{
             /*background-color:rgb(170, 142, 247);*/
@@ -15,36 +16,33 @@
             height:100%;
         }
     </style>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="screen" />
+
 </head>
 <body>
     <div class = "background-image"></div>
-    <!--NAVBAR-->
-    <div class="navbar">
-        <div class="container flex">
-            <h1 class="logo my-4">OS PROJECT</h1>
-                <nav>
-                    <ul class = "nav-opt">
-                        <li class>
-                            <a href="index.html">PRA</a>
-                        </li>
-                        <li class>
-                            <a href="fifo.html">FIFO</a>
-                        </li>
-                        <li class=>
-                            <a href="lifo.html">LIFO</a>
-                        </li>
-                        <li class>
-                            <a href="lru.html">LRU</a>
-                        </li>
-                        <li class>
-                            <a href="opr.html">OPR</a>
-                        </li>
-                        <li class>
-                            <a href="aboutUs.html">ABOUT US</a>
-                        </li>    
+    <!-- /* NAVBAR */ -->
+    <div class="navbar">       
+        <!-- <div class="container flex">   -->
+            <span class="navbar-toggle" id="js-navbar-toggle">
+                <i class="fa fa-bars"></i>
+            </span>          
+            <h1 class="logo my-3">OS PROJECT</h1>
+                 <nav>
+                    <ul class = "nav-opt" id="js-menu">
+                        <!-- <li><a href="home.html">Home</a></li> -->
+                        <!-- <li class="icon"><a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a></li>  -->
+                        <li><a class="nav-links" href="index.html">PRA</a></li>
+                        <li><a class="nav-links" href="fifo.html">FIFO</a></li>
+                        <li><a class="nav-links" href="lifo.html">LIFO</a></li>
+                        <li><a class="nav-links" href="lru.html">LRU</a></li>
+                        <li><a class="nav-links" href="opr.html">OPR</a></li>
+                        <li><a class="nav-links" href="aboutUs.html">ABOUT US</a></li>
+                           
                     </ul>
-                </nav>
-        </div>
+                </nav> 
+        <!-- </div>  -->
     </div>
             
         </div>
@@ -54,4 +52,7 @@
                 Least Recently Used&ensp;•&ensp;Optimal Page Replacement</p>
         </div>
     </div>
+    <script src="homeapp.js"></script>
+  
 </body>
+</html>

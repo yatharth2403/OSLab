@@ -34,7 +34,7 @@ h1{
     font-weight: 500;
     line-height:1.2;
     margin: 0 5px;
-    overflow: auto;
+    /* overflow: auto; */
 }
 h2,h3{
     font-size:2rem;
@@ -51,12 +51,13 @@ p{
 #icon{
     width:100%;
 }
-.nav-opt{
-    font-size: 1em;
-}
 
 .navbar{
     background-color:whitesmoke;
+    /* background: linear-gradient(to left,#feac5e,#c779d0,#4bc0c8); */
+    /* background: linear-gradient(to left,#cc95c0,#dbd4b4,#7aa1d2); */
+        /* background-image: linear-gradient(to left,#4776e6,#8e54e9); */
+    /* background: linear-gradient(to left,#4776e6,#8e54e9); */
     color:var(--secondary-color);
     height:100%;
 }
@@ -68,15 +69,39 @@ p{
 .navbar a:hover{
     border-bottom: 2px var(--secondary-color) solid;
 }
-.navbar ul{
+/* .navbar ul{
     display:flex;
-}
-.navbar .flex{
+}  */
+/* .navbar .flex{
    justify-content:space-between;
+}    */
+.nav-opt{
+    list-style-type: none;
+    display: none;
+    font-size: 1em;
+}
+.nav-opt li {
+    text-align: center;
+    margin: 15px auto; 
+}
+.navbar-toggle {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    /* color: rgba(255, 255, 255, 0.8); */
+    font-size: 24px;
+}
+.active{
+    display: block;
+    padding-bottom: 10px;
 }
 .logo{
-    font-weight: 500;
-    font-size: 2.5rem;
+    display:inline-block;
+    font-weight: 400;
+    font-size: 2rem;
+    margin-top: 10px;
+    margin-left: 20px;
 }
 
 .container{
@@ -91,7 +116,7 @@ p{
 }
 .middlename{
     color: white;
-    font-size: 5em;
+    /* font-size: 5em; */
     text-shadow: 10px 10px 10px rgb(91, 80, 119);
     text-align: center;
     padding: 150px 0;
@@ -109,7 +134,57 @@ p{
 }
 .types{
     color: whitesmoke;
-    font-size: 2em ;
-    margin: 30px 60px;
-    margin-left: 100px;
+    text-align:center;
+    /* font-size: 2em ; */
+    /* margin: 30px 60px;
+    margin-left: 100px; */
+}
+
+
+
+@media screen and (min-width: 768px) {
+    
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom:0px;
+        height: 70px;
+        align-items: center;
+    }
+    .nav-opt{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .nav-opt li {
+        margin: 0;
+    }
+    .logo{
+        margin-top:0;
+    }
+    .navbar-toggle {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 320px) {
+    .middlename{
+        font-size:3.2rem;
+    }
+    .types{
+        font-size:1.3rem;
+        margin: 10px 20px;
+        margin-left: 40px;
+        margin-bottom: 100px;
+    }
+}
+@media screen and (min-width: 800px) {
+    .middlename{
+        font-size:5rem;
+    }
+    .types{
+        font-size:2rem;
+        margin: 30px 60px;
+        margin-left: 100px;
+    }
 }
