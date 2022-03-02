@@ -6,29 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LIFO | Page Repacement Algorithms</title>
     <link rel="stylesheet" href="pgstyle.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="screen" />
+
 </head>
 <body>
     <!--NAVBAR-->
     <div class="navbar">
-        <div class="container flex">
+        <span class="navbar-toggle" id="js-navbar-toggle">
+            <i class="fa fa-bars"></i>
+        </span>
+        <!-- <div class="container flex"> -->
             <h1 class="logo"><a href="home.html" title="Home">OS Project</a></h1>
                 <nav>
-                    <ul>
-                        <li class>
-                            <a href="index.html">PRA</a>  
+                    <ul class = "nav-opt" id="js-menu">
+                        <li>
+                            <a class="nav-links" href="index.html">PRA</a>  
                         </li>             
-                        <li class>            
-                            <a href="fifo.html" title="FIFO">FIFO</a>
+                        <li>            
+                            <a class="nav-links" href="fifo.html" title="FIFO">FIFO</a>
                          </li>
-                         <li class>                                                      
-                            <a href="lru.html" title="LRU">LRU</a> 
+                         <li>                                                      
+                            <a class="nav-links" href="lru.html" title="LRU">LRU</a> 
                         </li>
-                         <li class>            
-                            <a href="opr.html" " title="OPR">OPR</a>
+                         <li>            
+                            <a class="nav-links" href="opr.html" " title="OPR">OPR</a>
                         </li>                        
                     </ul>
                 </nav>
-        </div>
+        <!-- </div> -->
     </div>
 
     <!--SHOWCASE-->
@@ -83,6 +88,7 @@
                 </ul>
                 <p class="lrspc"> Number of Page Faults = 9</p>
         </div>
-    </section>  
+    </section> 
+    <script src="homeapp.js"></script> 
 </body>
 </html>
