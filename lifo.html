@@ -59,7 +59,7 @@ function fillcol(tablename,col,objframes,n,searchindex){
     let cell=document.getElementById(tablename+n+''+col);
     if(searchindex==-1)cell.innerHTML="MISS";
     else{
-        // console.log(tablename+n+''+col); 
+        console.log(tablename+n+''+col); 
         cell.innerHTML="HIT";
         document.getElementById(tablename+(searchindex+1)+''+col).classList.add("bg-success","text-white");
     }
