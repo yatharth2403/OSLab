@@ -117,7 +117,7 @@ p{
 .middlename{
     color: white;
     /* font-size: 5em; */
-    text-shadow: 10px 10px 10px rgb(91, 80, 119);
+    text-shadow: 10px 10px 10px rgb(0, 0, 0);
     text-align: center;
     padding: 150px 0;
     justify-content: c;
