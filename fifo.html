@@ -16,6 +16,8 @@
         this.searchIndex=-1; 
         this.frames=[];
     }
+
+   /* initialising object and specifying values */
     refer(token) {
         this.searchIndex=this.frames.indexOf(token);
         if(this.searchIndex==-1){
@@ -29,6 +31,8 @@
             this.pageHits++;
     }
 }
+
+/*fetching input and splitting on spaces*/
 document.getElementById("Submit").addEventListener("click",FIFO);
 function FIFO(){
     let res = document.getElementById("input1").value.split(" ");
@@ -39,6 +43,8 @@ function FIFO(){
             ref.push(res[i]);
         }
     }
+
+    /* creating table*/
     createTable("table",frames,ref);
     let obj = new fifo(frames);
     for(let i=0;i<ref.length;i++){
@@ -47,11 +53,13 @@ function FIFO(){
     }
     summary('summary',obj.pageFaults,obj.pageFaults+obj.pageHits,frames);
 }
+/*fifo function and filling table*/
 function fillcol(tablename,col,objframes,n,searchindex){
     for(let i=1;i<=objframes.length;i++){
         let cell=document.getElementById(tablename+i+''+col);
         cell.innerHTML=objframes[i-1];
     }
+    //filling miss and hit row
     n++;
     let cell=document.getElementById(tablename+n+''+col);
     if(searchindex==-1)cell.innerHTML="MISS";
@@ -61,6 +69,8 @@ function fillcol(tablename,col,objframes,n,searchindex){
         document.getElementById(tablename+(searchindex+1)+''+col).classList.add("bg-success","text-white");
     }
 }
+
+//designing table
 function createTable(tablename,frames,ref){
     document.getElementById(tablename).innerHTML="";
     let table = '<tr><td id="'+tablename+'00" style="font-weight:bolder;">Reference</td>';
@@ -84,7 +94,7 @@ function createTable(tablename,frames,ref){
     console.log(table);
     document.getElementById(tablename).innerHTML += table;
 }
-
+// filling out summary
 function summary(id,pagefaults,pages,frames){
     let summary ="";
     let missratio=(pagefaults / pages).toPrecision(2);
