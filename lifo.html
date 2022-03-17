@@ -42,6 +42,7 @@ function LIFO(){
     for (let i = 0; i < res.length; i++) {
         if (res[i] != " " && res[i] != "") {
             ref.push(res[i]);
+            location.reload(true)
         }
     }
 
@@ -76,8 +77,6 @@ function fillcol(tablename,col,objframes,n,searchindex){
 
 
 }
-
-
 //-----------------function create table uses javascript to create a table--------------- 
 
 function createTable(tablename,frames,ref){
