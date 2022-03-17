@@ -16,6 +16,8 @@
         this.searchIndex=-1; 
         this.frames=[];
     }
+
+   /* initialising object and specifying values */
     refer(token) {
         this.searchIndex=this.frames.indexOf(token);
         if(this.searchIndex==-1){
@@ -29,6 +31,8 @@
             this.pageHits++;
     }
 }
+
+/*fetching input and splitting on spaces*/
 document.getElementById("Submit").addEventListener("click",FIFO);
 function FIFO(){
 
@@ -54,6 +58,8 @@ function FIFO(){
             ref.push(res[i]);
         }
     }
+
+    /* creating table*/
     createTable("table",frames,ref);
     let obj = new fifo(frames);
     for(let i=0;i<ref.length;i++){
@@ -62,11 +68,13 @@ function FIFO(){
     }
     summary('summary',obj.pageFaults,obj.pageFaults+obj.pageHits,frames);
 }
+/*fifo function and filling table*/
 function fillcol(tablename,col,objframes,n,searchindex){
     for(let i=1;i<=objframes.length;i++){
         let cell=document.getElementById(tablename+i+''+col);
         cell.innerHTML=objframes[i-1];
     }
+    //filling miss and hit row
     n++;
     let cell=document.getElementById(tablename+n+''+col);
     if(searchindex==-1)cell.innerHTML="MISS";
@@ -76,6 +84,8 @@ function fillcol(tablename,col,objframes,n,searchindex){
         document.getElementById(tablename+(searchindex+1)+''+col).classList.add("bg-success","text-white");
     }
 }
+
+//designing table
 function createTable(tablename,frames,ref){
     document.getElementById(tablename).innerHTML="";
     let table = '<tr><td id="'+tablename+'00" style="font-weight:bolder;">Reference</td>';
@@ -99,7 +109,7 @@ function createTable(tablename,frames,ref){
     console.log(table);
     document.getElementById(tablename).innerHTML += table;
 }
-
+// filling out summary
 function summary(id,pagefaults,pages,frames){
     let summary ="";
     let missratio=(pagefaults / pages).toPrecision(2);
@@ -178,7 +188,7 @@ function summary(id,pagefaults,pages,frames){
                 <br>
                 <p class="lrspc">Consider the Pages referenced by the CPU in the order are 6, 7, 8, 9, 6, 7, 1, 6, 7, 8, 9, 1</p>
                 <br>
-                <img class="dis" src="fifoex.png" id="icon" alt="image">
+                <img class="dis" src="fifoex2.png" id="icon" alt="image">
                 <br>
                 <ul>
                     <li class="size-2 lrspc">As in the above figure shown, let there are 3 frames in the memory.</li>
@@ -191,11 +201,12 @@ function summary(id,pagefaults,pages,frames){
                 </ul>
                 <p class="lrspc"> Number of Page Faults = 5</p>
         </div>
-        <div class="inputfromuser" style="text-align:center;">
-            <h1 id = "example-heading">Working example</h2>
-      	    <h2></h2>
-            <div>Instruction: For a reference string{a,b,c,d}, Enter in the format {a b c d}</div>
-            <div>Warning: The Reference String cannot be NEGATIVE and the Number of frames should be more than 0 !</div>
+        <div class="inputfromuser container pu" style="text-align:center;">
+            <div class="buttn buttn-one">
+                <span>Working Example</span> 
+            </div>
+                <div class="pu">Instruction: For a reference string{a,b,c,d}, Enter in the format {a b c d}</div>
+                <div>Warning: The Reference String cannot be NEGATIVE and the Number of frames should be more than 0!</div>
             <br>
             
             <input id="input1" style="width: 400px; height: 50px;" placeholder = "  Enter reference String">
