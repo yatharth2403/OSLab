@@ -107,7 +107,20 @@ class lru{
 document.getElementById("Submit").addEventListener("click",LRU);
 function LRU(){
     let res = document.getElementById("input1").value.split(" ");
+    for(let i = 0;i<res.length;i++){
+            if(res[i]<=0){
+                alert ("Please Enter positive values")
+                location.reload(true)
+                break;
+            }
+        }
     let frames = document.getElementById("input2").value;
+    if(frames<=0){
+        alert("Please Enter positive values")
+        location.reload(true)
+    }
+    else{
+        
     let ref=[];
     for (let i = 0; i < res.length; i++) {
         if (res[i] != " " && res[i] != "") {
@@ -173,6 +186,7 @@ function summary(id,pagefaults,pages,frames){
     summary+=`<div>Miss Ratio:${missratio}</div>`;
     document.getElementById(id).innerHTML=summary;
 }
+}
     </script>
 </head>
 <body>
@@ -195,7 +209,7 @@ function summary(id,pagefaults,pages,frames){
                         <a class="nav-links" href="lifo.html" title="LIFO">LIFO</a> 
                     </li>
                     <li>            
-                        <a class="nav-links" href="opr.html" " title="OPR">OPR</a>
+                        <a class="nav-links" href="opr.html" title="OPR">OPR</a>
                     </li>                        
                 </ul>
             </nav>
