@@ -31,15 +31,37 @@
     }
 }
 document.getElementById("Submit").addEventListener("click",LIFO);
+
+
+//--------------defining function LIFO--------------
+
 function LIFO(){
-    let res = document.getElementById("input1").value.split(" ");
-    let frames = document.getElementById("input2").value;
+    let res = document.getElementById("input1").value.split(" ");  
+                             //getting element using id input1 is the space separated string entered by the user.
+        for(let i = 0;i<res.length;i++){
+            if(res[i]<=0){
+                alert ("Please Enter positive values")
+                location.reload(true)
+                break;
+            }
+        }
+    let frames = document.getElementById("input2").value;  
+    if(frames<=0){
+        alert("Please Enter positive values")
+        location.reload(true)
+    }
+    else{
+                                             //gettind element using id input2 is the nummber of frames.
     let ref=[];
     for (let i = 0; i < res.length; i++) {
         if (res[i] != " " && res[i] != "") {
             ref.push(res[i]);
         }
-    }
+    }   
+
+    
+//------------------calling fucntion table----------------
+
     createTable("table",frames,ref);
     let obj = new lifo(frames);
     for(let i=0;i<ref.length;i++){
@@ -48,9 +70,11 @@ function LIFO(){
     }
     summary('summary',obj.pageFaults,obj.pageFaults+obj.pageHits,frames);
 }
-        // console.log(tablename+n+''+col); 
         
-function fillcol(tablename,col,objframes,n,searchindex){
+        
+//----------function fillcol is called which creates new columns and fills it--------------
+
+function fillcol(tablename,col,objframes,n,searchindex){   
     for(let i=1;i<=objframes.length;i++){
         let cell=document.getElementById(tablename+i+''+col);
         cell.innerHTML=objframes[i-1];
@@ -65,7 +89,8 @@ function fillcol(tablename,col,objframes,n,searchindex){
     }
 
 
-}    
+}
+//-----------------function create table uses javascript to create a table--------------- 
 
 function createTable(tablename,frames,ref){
     document.getElementById(tablename).innerHTML="";
@@ -91,6 +116,9 @@ function createTable(tablename,frames,ref){
     document.getElementById(tablename).innerHTML += table;
 }
 
+
+//----------------function summary uses the values and does calculations to find ratios--------------
+
 function summary(id,pagefaults,pages,frames){
     let summary ="";
     let missratio=(pagefaults / pages).toPrecision(2);
@@ -103,15 +131,16 @@ function summary(id,pagefaults,pages,frames){
     summary+=`<div>Miss Ratio:${missratio}</div>`;
     document.getElementById(id).innerHTML=summary;
 }
+}
     </script>
 </head>
 <body>
-    <!--NAVBAR-->
+    <!------------NAVBAR-------------->
     <div class="navbar">
         <span class="navbar-toggle" id="js-navbar-toggle">
             <i class="fa fa-bars"></i>
         </span>
-        <!-- <div class="container flex"> -->
+        <!------------ <div class="container flex"> ------------->
             <h1 class="logo"><a href="home.html" title="Home">OS Project</a></h1>
                 <nav>
                     <ul class = "nav-opt" id="js-menu">
@@ -125,14 +154,14 @@ function summary(id,pagefaults,pages,frames){
                             <a class="nav-links" href="lru.html" title="LRU">LRU</a> 
                         </li>
                          <li>            
-                            <a class="nav-links" href="opr.html" " title="OPR">OPR</a>
+                            <a class="nav-links" href="opr.html" title="OPR">OPR</a>
                         </li>                        
                     </ul>
                 </nav>
-        <!-- </div> -->
+        <!----------------- </div> ----------------->
     </div>
 
-    <!--SHOWCASE-->
+    <!---------------SHOWCASE--------------->
     <section class="showcase">
         <div class="container">
             <div class="showcase-text slide-right">
@@ -140,12 +169,11 @@ function summary(id,pagefaults,pages,frames){
                 <p class="lrspc">
                     The requested page is substituted for the most recent page in this algorithm. This is usually accomplished via a stack, in which the newest page is at the top of a stack of pages currently in memory. The page at the top of the stack is replaced whenever a page fault occurs. 
                 </p>
-            </div>   
-            <!--<img src="image.jpg" id="icon" alt="image">-->
+            </div>  
         </div>
     </section>
 
-    <!--Page Content-->
+    <!---------------Page Content------------->
     <section class="page-content">
         <div class="container pu">
             <div class="buttn buttn-one">
