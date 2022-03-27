@@ -8,20 +8,21 @@
     <link rel="stylesheet" href="pgstyle.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="screen" />
     <script>
-        class optimal{
+class optimal{
     constructor(capacity){
-        this.capacity=capacity;
+        this.capacity=capacity;   
         this.pageFaults=0;
         this.pageHits=0;
         this.searchIndex=-1;
         this.frames=[];
         this.sr=[]   
     }
+    //optimal code 
     refer(token,remaining){
-        this.searchIndex=this.frames.indexOf(token);
+        this.searchIndex = this.frames.indexOf(token);
         if(this.searchIndex!=-1){
             this.pageHits++;
-        }
+        } 
         else{
             this.pageFaults++;
             if(this.capacity==this.frames.length){
@@ -41,87 +42,89 @@
         }
     }
 }
+//Command for Submit key
 document.getElementById("Submit").addEventListener("click",OPTIMAL);
 function OPTIMAL(){
+    //Reference String input neagative check
     let res = document.getElementById("input1").value.split(" ");
-
     for(let i = 0;i<res.length;i++){
-            if(res[i]<=0){
-                alert ("Please Enter positive values")
-                location.reload(true)
-                break;
-            }
+        if(res[i]<=0){
+            alert ("Please Enter positive values")
+            location.reload(true)
+            break;
         }
+    }
+    //no of frames input positive check
     let frames = document.getElementById("input2").value;
     if(frames<=0){
         alert("Please Enter positive values")
         location.reload(true)
     }
-    else{
-        
-    let ref=[];
-    for (let i = 0; i < res.length; i++) {
-        if (res[i] != " " && res[i] != "") {
-            ref.push(res[i]);
+    else{        
+        let ref=[];
+        for (let i = 0; i < res.length; i++) {
+            if (res[i] != " " && res[i] != "") {
+                ref.push(res[i]);
+            }
+        }
+        createTable("table",frames,ref);
+        let obj = new optimal(frames);
+        for(let i=0;i<ref.length;i++){
+            obj.refer(ref[i],ref.slice(i+1));
+            fillcol("table",i+1,obj.frames,frames,obj.searchIndex);
+        }
+        summary('summary',obj.pageFaults,obj.pageFaults+obj.pageHits,frames);
+    }
+    /*filling table*/
+    function fillcol(tablename,col,objframes,n,searchindex){
+        for(let i=1;i<=objframes.length;i++){
+            let cell=document.getElementById(tablename+i+''+col);
+            cell.innerHTML=objframes[i-1];
+        }
+        n++;
+        let cell=document.getElementById(tablename+n+''+col);
+        if(searchindex==-1)cell.innerHTML="MISS";
+        else{
+            cell.innerHTML="HIT";
+            document.getElementById(tablename+(searchindex+1)+''+col).classList.add("bg-success","text-white");
         }
     }
-    createTable("table",frames,ref);
-    let obj = new optimal(frames);
-    for(let i=0;i<ref.length;i++){
-        obj.refer(ref[i],ref.slice(i+1));
-        fillcol("table",i+1,obj.frames,frames,obj.searchIndex);
-    }
-    summary('summary',obj.pageFaults,obj.pageFaults+obj.pageHits,frames);
-}
-function fillcol(tablename,col,objframes,n,searchindex){
-    for(let i=1;i<=objframes.length;i++){
-        let cell=document.getElementById(tablename+i+''+col);
-        cell.innerHTML=objframes[i-1];
-    }
-    n++;
-    let cell=document.getElementById(tablename+n+''+col);
-    if(searchindex==-1)cell.innerHTML="MISS";
-    else{
-        // console.log(tablename+n+''+col); 
-        cell.innerHTML="HIT";
-        document.getElementById(tablename+(searchindex+1)+''+col).classList.add("bg-success","text-white");
-    }
-}
-function createTable(tablename,frames,ref){
-    document.getElementById(tablename).innerHTML="";
-    let table = '<tr class="font-weight-bold"><td  id="'+tablename+'00">Reference</td>';
-    for (let i = 0; i < ref.length; i++) {
-        table += '<td id="'+tablename+'0'+(i+1) + '">' + ref[i] + "</td>";
-    }
-    table += "</tr>";
-    for (let i = 0; i < frames; i++) {
-        table += '<tr><td class="font-weight-bold" id="' +tablename+ (i + 1) + '0">Frame ' + (i + 1) + "</td>";
-        for (let j = 0; j < ref.length; j++) {
-            table += '<td id="'+tablename + (i + 1) + (j + 1) + '"></td>';
+/* designing table*/
+    function createTable(tablename,frames,ref){
+        document.getElementById(tablename).innerHTML="";
+        let table = '<tr class="font-weight-bold"><td id="' +tablename+' 00">Reference</td>';
+        for (let i = 0; i < ref.length; i++) {
+            table += '<td id="'+tablename+'0'+(i+1) + '">' + ref[i] + "</td>";
         }
         table += "</tr>";
+        for (let i = 0; i < frames; i++) {
+            table += '<tr><td class="font-weight-bold" id="' +tablename+ (i + 1) + '0">Frame ' + (i + 1) + "</td>";
+            for (let j = 0; j < ref.length; j++) {
+                table += '<td id="'+tablename + (i + 1) + (j + 1) + '"></td>';
+            }
+            table += "</tr>";
+        }
+        frames++;
+        table += '<tr><td class="font-weight-bold" id="' +tablename+ frames + '0">Status</td>';
+        for (let j = 1; j <= ref.length; j++) {
+            table += '<td id="' +tablename+ frames + j + '"></td>';
+        }
+        table += "</tr>";
+        console.log(table);
+        document.getElementById(tablename).innerHTML += table;
     }
-    frames++;
-    table += '<tr><td class="font-weight-bold" id="' +tablename+ frames + '0">Status</td>';
-    for (var j = 1; j <= ref.length; j++) {
-        table += '<td id="' +tablename+ frames + j + '"></td>';
+// filling out summary below the table
+    function summary(id,pagefaults,pages,frames){
+        let summary ="";
+        let missratio=(pagefaults / pages).toPrecision(2);
+        summary+=`<div>Pages:${pages}</div>`;
+        summary+=`<div>Frames:${frames}</div>`;
+        summary+=`<div>Hits:${pages-pagefaults}</div>`;
+        summary+=`<div>Faults:${pagefaults}</div>`; 
+        summary+=`<div>Hit Ratio:${(1-missratio).toPrecision(2)}</div>`; 
+        summary+=`<div>Miss Ratio:${missratio}</div>`;
+        document.getElementById(id).innerHTML=summary;
     }
-    table += "</tr>";
-    console.log(table);
-    document.getElementById(tablename).innerHTML += table;
-}
-
-function summary(id,pagefaults,pages,frames){
-    let summary ="";
-    let missratio=(pagefaults / pages).toPrecision(2);
-    summary+=`<div>Pages:${pages}</div>`;
-    summary+=`<div>Frames:${frames}</div>`;
-    summary+=`<div>Hits:${pages-pagefaults}</div>`;
-    summary+=`<div>Faults:${pagefaults}</div>`; 
-    summary+=`<div>Hit Ratio:${(1-missratio).toPrecision(2)}</div>`; 
-    summary+=`<div>Miss Ratio:${missratio}</div>`;
-    document.getElementById(id).innerHTML=summary;
-}
 }
     </script>
 </head>
@@ -151,7 +154,6 @@ function summary(id,pagefaults,pages,frames){
                 </nav>
         <!-- </div> -->
     </div>
-
     <!--SHOWCASE-->
     <section class="showcase">
         <div class="container">
@@ -166,7 +168,6 @@ function summary(id,pagefaults,pages,frames){
             <!--<img src="image.jpg" id="icon" alt="image">-->
         </div>
     </section>
-
        <!-- Page Content -->
        <section class="page-content">
         <div class="container pu">
@@ -215,8 +216,7 @@ function summary(id,pagefaults,pages,frames){
             <input id="input2" style="width: 400px; height: 50px ; " placeholder = "  Enter number of frames">
             <br>
             <br>
-            <button onClick="OPTIMAL()" id="Submit" style=" border-color:rgb(203, 148, 255);border-radius: 13px;font-size: 20px; background-color: rgb(200, 152, 255); width: 200px; height: 50px;" >Click to Visualize!</button>
-           
+            <button onClick="OPTIMAL()" id="Submit" style=" border-color:rgb(203, 148, 255);border-radius: 13px;font-size: 20px; background-color: rgb(200, 152, 255); width: 200px; height: 50px;" >Click to Visualize!</button>           
             <br>
             <div>
                 <br>
