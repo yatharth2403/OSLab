@@ -115,7 +115,7 @@ function summary(id,pagefaults,pages,frames){
     let summary ="";
     let missratio=(pagefaults / pages).toPrecision(2);
     let hitratio=(1-missratio).toPrecision(2);
-    summary+=`<div> :${pages}</div>`;
+    summary+=`<div>Pages:${pages}</div>`;
     summary+=`<div>Frames:${frames}</div>`;
     summary+=`<div>Hits:${pages-pagefaults}</div>`;
     summary+=`<div>Faults:${pagefaults}</div>`; 
