@@ -74,7 +74,6 @@ class Dequeue {
         return fr;
     }
 }
-// initialising object and specifying values
 class lru{
     constructor(capacity){
         this.capacity=capacity;
@@ -105,8 +104,7 @@ class lru{
     }
 }
 
-/*fetching input and splitting on spaces*/
-document.getElementById("Submit").addEventListener("click",LRU);
+// document.getElementById("Submit").addEventListener("click",LRU);
 function LRU(){
     let res = document.getElementById("input1").value.split(" ");
     for(let i = 0;i<res.length;i++){
@@ -117,18 +115,18 @@ function LRU(){
             }
         }
     let frames = document.getElementById("input2").value;
-    if(frames<=0){
+    if(frames<0){
         alert("Please Enter positive values")
         location.reload(true)
     }
-    else{   
+    else{
+        
     let ref=[];
     for (let i = 0; i < res.length; i++) {
         if (res[i] != " " && res[i] != "") {
             ref.push(res[i]);
         }
     }
-    /* creating table*/
     createTable("table",frames,ref);
     let obj = new lru(frames);
     for(let i=0;i<ref.length;i++){
@@ -137,7 +135,6 @@ function LRU(){
     }
     summary('summary',obj.pageFaults,obj.pageFaults+obj.pageHits,frames);
 }
-/*lru function and filling table*/
 function fillcol(tablename,col,objframes,n,searchindex){
     for(let i=1;i<=objframes.length;i++){
         let cell=document.getElementById(tablename+i+''+col);
@@ -152,7 +149,7 @@ function fillcol(tablename,col,objframes,n,searchindex){
         document.getElementById(tablename+(searchindex+1)+''+col).classList.add("bg-success","text-black");
     }
 }
-//designing table
+
 function createTable(tablename,frames,ref){
     document.getElementById(tablename).innerHTML="";
     let table = '<tr class="font-weight-bold"><td id="'+tablename+'00">Reference</td>';
@@ -177,7 +174,6 @@ function createTable(tablename,frames,ref){
     document.getElementById(tablename).innerHTML += table;
 }
 
-// filling out summary
 function summary(id,pagefaults,pages,frames){
     let summary ="";
     let missratio=(pagefaults / pages).toPrecision(2);
@@ -213,8 +209,12 @@ function summary(id,pagefaults,pages,frames){
                         <a class="nav-links" href="lifo.html" title="LIFO">LIFO</a> 
                     </li>
                     <li>            
+                        <a class="nav-links" href="lru.html"  title="LRU">LRU</a>
+                    </li>
+                    <li>            
                         <a class="nav-links" href="opr.html" title="OPR">OPR</a>
                     </li>                        
+                    <li><a class="nav-links" href="chart.html">GRAPHS</a></li>
                 </ul>
             </nav>
         <!-- </div> -->
@@ -271,22 +271,19 @@ function summary(id,pagefaults,pages,frames){
                         <li>Then 8 replaces 1, 9 replaces 6, 1 replaces 7, and 7 replaces 8, page fault occurs.</li>
                         <li>Then 9 comes and page hit occurs.</li>
                         <li>Then 6 replaces 1 and page fault occurs.</li>
+                        <li>The number of Page Faults = 12</li>
                     </ul>
-                    <p class="lrspc">The number of Page Faults = 12</p>
+                    <p class="lrspc">The number of Page Faults = 5</p>
                 </p>
         </div>
-        <div class="inputfromuser container pu" style="text-align:center;">
-            <div class="buttn buttn-one">
-                <span>Working Example</span> 
-            </div>
-                <div class="pu">Instruction: For a reference string{a,b,c,d}, Enter in the format {a b c d}</div>
-                <div>Warning: The Reference String cannot be NEGATIVE and the Number of frames should be more than 0!</div>
+        <div class="inputfromuser" style="text-align:center;">
+            <h1 id = "example-heading">Working example</h2>
             <br>
             
-            <input id="input1" style="width: 400px; height: 50px;" placeholder = "  Enter reference String">
+            <input id="input1" style="border:none ;border-radius:12px ;width: 400px; height: 50px; padding-left:15px; font-family:Lato; font-size:15px" placeholder = "  Enter Reference String">
             <br>
             <br>
-            <input id="input2" style="width: 400px; height: 50px ; " placeholder = "  Enter number of frames">
+            <input id="input2" style="border:none ;border-radius:12px; width: 400px; height: 50px ; padding-left:15px; font-family:Lato; font-size:15px" placeholder = "  Enter number of frames">
             <br>
             <br>
             <button onClick="LRU()" id="Submit" style=" border-color:rgb(203, 148, 255);border-radius: 13px;font-size: 20px; background-color: rgb(200, 152, 255); width: 200px; height: 50px;" >Click to Visualize!</button>
@@ -298,7 +295,7 @@ function summary(id,pagefaults,pages,frames){
                 </table>
                 <br>
 				<br>
-				<div id="summary" class="d-flex justify-content-around font-weight-bold text-uppercase" style="font-size: 2em;"> </div>
+				<div id="summary" class="d-flex justify-content-around font-weight-bold text-uppercase" style="font-size: 1.5em;"> </div>
                
 	        </div>
         <div class="container"></div>

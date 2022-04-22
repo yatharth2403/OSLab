@@ -7,9 +7,8 @@
     <title>FIFO | Page Repacement Algorithms</title>
     <link rel="stylesheet" href="pgstyle.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="screen" />
-    <!--<script src="belady.js"></script>-->
- <script>
-     
+    <script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>
+    <script>
         class fifo{
     constructor(capacity){
         this.capacity=capacity;
@@ -40,14 +39,14 @@ function FIFO(){
 
     let res = document.getElementById("input1").value.split(" ");
     for(let i = 0;i<res.length;i++){
-            if(res[i]<=0){
+            if(res[i]<0){
                 alert ("Please Enter positive values")
                 location.reload(true)
                 break;
             }
     }
     let frames = document.getElementById("input2").value;
-    if(frames<=0){
+    if(frames<0){
         alert("Please Enter positive values")
         location.reload(true)
     }
@@ -116,7 +115,7 @@ function summary(id,pagefaults,pages,frames){
     let summary ="";
     let missratio=(pagefaults / pages).toPrecision(2);
     let hitratio=(1-missratio).toPrecision(2);
-    summary+=`<div>Pages:${pages}</div>`;
+    summary+=`<div Pages:${pages}</div>`;
     summary+=`<div>Frames:${frames}</div>`;
     summary+=`<div>Hits:${pages-pagefaults}</div>`;
     summary+=`<div>Faults:${pagefaults}</div>`; 
@@ -125,7 +124,7 @@ function summary(id,pagefaults,pages,frames){
     document.getElementById(id).innerHTML=summary;
 }
 }
-    </script> 
+    </script>
 </head>
 <body>
     <!--NAVBAR-->
@@ -139,7 +138,10 @@ function summary(id,pagefaults,pages,frames){
                     <ul class = "nav-opt" id="js-menu">
                         <li>
                             <a class="nav-links" href="index.html">PRA</a>  
-                        </li>             
+                        </li>  
+                        <li>
+                            <a class="nav-links" href="fifo.html">FIFO</a>  
+                        </li>           
                         <li>            
                             <a class="nav-links" href="lifo.html" title="LIFO">LIFO</a>
                         </li>
@@ -148,6 +150,9 @@ function summary(id,pagefaults,pages,frames){
                         </li>
                         <li>            
                             <a class="nav-links" href="opr.html"  title="OPR">OPR</a>
+                        </li> 
+                        <li>            
+                            <a class="nav-links" href="chart.html"  title="graph">GRAPHS</a>
                         </li>                        
                     </ul>
                 </nav>
@@ -211,13 +216,13 @@ function summary(id,pagefaults,pages,frames){
                 <div>Warning: The Reference String cannot be NEGATIVE and the Number of frames should be more than 0!</div>
             <br>
             
-            <input id="input1" style="width: 400px; height: 50px;" placeholder = "  Enter reference String">
+            <input id="input1" style="border:none ;border-radius:12px ;width: 400px; height: 50px; padding-left:15px; font-family:Lato; font-size:15px" placeholder = "  Enter Reference String">
             <br>
             <br>
-            <input id="input2" style="width: 400px; height: 50px ; " placeholder = "  Enter number of frames">
+            <input id="input2" style="border:none ;border-radius:12px; width: 400px; height: 50px ; padding-left:15px; font-family:Lato; font-size:15px" placeholder = "  Enter number of frames">
             <br>
             <br>
-            <button onClick="FIFO()" id="Submit" style=" border-color:rgb(203, 148, 255);border-radius: 13px;font-size: 20px; background-color: rgb(200, 152, 255); width: 200px; height: 50px;" >Click to Visualize!</button>
+            <button onClick="FIFO()" id="Submit" >Click to Visualize!</button>
            
             <br>
             <div>
@@ -226,11 +231,15 @@ function summary(id,pagefaults,pages,frames){
                 </table>
                 <br>
 				<br>
-				<div id="summary" class="d-flex justify-content-around font-weight-bold text-uppercase"style="font-size: 2em;"> </div>
+				<div id="summary" class="d-flex justify-content-around font-weight-bold text-uppercase" style="font-size: 1.5em"> </div>
                
 	        </div>
         <div class="container"></div>
     </section> 
     <script src="homeapp.js"></script>
+    <script>
+      
+
+        </script>
 </body>
 </html>

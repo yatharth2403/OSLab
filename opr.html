@@ -8,64 +8,67 @@
     <link rel="stylesheet" href="pgstyle.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="screen" />
     <script>
+
 class optimal{
     constructor(capacity){
         this.capacity=capacity;   
         this.pageFaults=0;
         this.pageHits=0;
         this.searchIndex=-1;
-        this.frames=[];
+        this.frames=[];   //current col frame pages
         this.sr=[]   
     }
     //optimal code 
     refer(token,remaining){
         this.searchIndex = this.frames.indexOf(token);
-        if(this.searchIndex!=-1){
+        if(this.searchIndex!=-1)
             this.pageHits++;
-        } 
         else{
             this.pageFaults++;
+            //frames full
             if(this.capacity==this.frames.length){
-                let t=this.sr.indexOf(-1);
-                if(t==-1){
+                let t=this.sr.indexOf(-1);   //check fro ele no longer repeating in array ahead
+                if(t==-1)                  //else find the latest one
                     t=this.sr.indexOf(Math.max(...this.sr));
-                }
+                
                 this.frames[t]=token;
                 if(remaining.indexOf(token)==-1)this.sr[t]=-1;
                 else this.sr[t]=this.frames.length+1+remaining.indexOf(token);
             }
+            //frames not full
             else{
-                if(remaining.indexOf(token)==-1)this.sr.push(-1);
-                else this.sr.push(this.frames.length+1+remaining.indexOf(token));
-                this.frames.push(token);
+                if(remaining.indexOf(token)==-1)
+                    this.sr.push(-1);
+                else{ 
+                    this.sr.push(this.frames.length+1+remaining.indexOf(token));
+                    this.frames.push(token);
+                }
             }
         }
     }
 }
 //Command for Submit key
-document.getElementById("Submit").addEventListener("click",OPTIMAL);
+// document.getElementById("Submit").addEventListener("click",OPTIMAL);
 function OPTIMAL(){
     //Reference String input neagative check
     let res = document.getElementById("input1").value.split(" ");
-    for(let i = 0;i<res.length;i++){
-        if(res[i]<=0){
+    for(let i = 0;i<res.length;i++)
+        if(res[i]<0){
             alert ("Please Enter positive values")
             location.reload(true)
             break;
         }
-    }
     //no of frames input positive check
     let frames = document.getElementById("input2").value;
-    if(frames<=0){
+    if(frames<0){
         alert("Please Enter positive values")
         location.reload(true)
     }
     else{        
         let ref=[];
         for (let i = 0; i < res.length; i++) {
-            if (res[i] != " " && res[i] != "") {
+            if (res[i] != " " && res[i] != "")
                 ref.push(res[i]);
-            }
         }
         createTable("table",frames,ref);
         let obj = new optimal(frames);
@@ -83,32 +86,30 @@ function OPTIMAL(){
         }
         n++;
         let cell=document.getElementById(tablename+n+''+col);
-        if(searchindex==-1)cell.innerHTML="MISS";
+        if(searchindex==-1)
+            cell.innerHTML="MISS";
         else{
             cell.innerHTML="HIT";
             document.getElementById(tablename+(searchindex+1)+''+col).classList.add("bg-success","text-white");
         }
     }
-/* designing table*/
+    /* designing table*/
     function createTable(tablename,frames,ref){
         document.getElementById(tablename).innerHTML="";
         let table = '<tr class="font-weight-bold"><td id="' +tablename+' 00">Reference</td>';
-        for (let i = 0; i < ref.length; i++) {
+        for (let i = 0; i < ref.length; i++) 
             table += '<td id="'+tablename+'0'+(i+1) + '">' + ref[i] + "</td>";
-        }
         table += "</tr>";
         for (let i = 0; i < frames; i++) {
             table += '<tr><td class="font-weight-bold" id="' +tablename+ (i + 1) + '0">Frame ' + (i + 1) + "</td>";
-            for (let j = 0; j < ref.length; j++) {
+            for (let j = 0; j < ref.length; j++) 
                 table += '<td id="'+tablename + (i + 1) + (j + 1) + '"></td>';
-            }
             table += "</tr>";
         }
         frames++;
         table += '<tr><td class="font-weight-bold" id="' +tablename+ frames + '0">Status</td>';
-        for (let j = 1; j <= ref.length; j++) {
+        for (let j = 1; j <= ref.length; j++) 
             table += '<td id="' +tablename+ frames + j + '"></td>';
-        }
         table += "</tr>";
         console.log(table);
         document.getElementById(tablename).innerHTML += table;
@@ -149,7 +150,11 @@ function OPTIMAL(){
                         </li>
                         <li>            
                             <a class="nav-links" href="lru.html"  title="LRU">LRU</a>
-                        </li>                        
+                        </li>     
+                        <li>            
+                            <a class="nav-links" href="opr.html"  title="OPR">OPR</a>
+                        </li>
+                        <li><a class="nav-links" href="chart.html">GRAPHS</a></li>
                     </ul>
                 </nav>
         <!-- </div> -->
@@ -165,7 +170,6 @@ function OPTIMAL(){
                     the performance of other algorithms.
                 </p>
             </div>   
-            <!--<img src="image.jpg" id="icon" alt="image">-->
         </div>
     </section>
        <!-- Page Content -->
@@ -210,10 +214,10 @@ function OPTIMAL(){
             <h1 id = "example-heading">Working example</h2>
             <br>
             
-            <input id="input1" style="width: 400px; height: 50px;" placeholder = "  Enter reference String">
+            <input id="input1" style="border:none ;border-radius:12px ;width: 400px; height: 50px; padding-left:15px; font-family:Lato; font-size:15px" placeholder = "  Enter Reference String">
             <br>
             <br>
-            <input id="input2" style="width: 400px; height: 50px ; " placeholder = "  Enter number of frames">
+            <input id="input2" style="border:none ;border-radius:12px; width: 400px; height: 50px ; padding-left:15px; font-family:Lato; font-size:15px" placeholder = "  Enter number of frames">
             <br>
             <br>
             <button onClick="OPTIMAL()" id="Submit" style=" border-color:rgb(203, 148, 255);border-radius: 13px;font-size: 20px; background-color: rgb(200, 152, 255); width: 200px; height: 50px;" >Click to Visualize!</button>           
@@ -224,7 +228,7 @@ function OPTIMAL(){
                 </table>
                 <br>
 				<br>
-				<div id="summary" class="d-flex justify-content-around font-weight-bold text-uppercase"style="font-size: 2em;"> </div>
+				<div id="summary" class="d-flex justify-content-around font-weight-bold text-uppercase"style="font-size: 1.5em;"> </div>
                
 	        </div>
         <div class="container"></div>
@@ -232,3 +236,4 @@ function OPTIMAL(){
     <script src="homeapp.js"></script>
 </body>
 </html>
+
