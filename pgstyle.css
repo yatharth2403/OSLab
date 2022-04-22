@@ -17,6 +17,28 @@
     font-weight: 900;
     font-size: 5em;
 }
+#Submit{
+    border-color:rgb(203, 148, 255);
+    border-radius: 13px;
+    font-size: 1.1rem; 
+    background-color: rgb(200, 152, 255); 
+    width: 200px; 
+    height: 50px; 
+    font-family:'Poppins';
+    font-weight: 0.75em;
+    color:var(--secondary-color);
+}
+#iSubmit{
+    border-color:rgb(234, 180, 255);
+    border-radius: 13px;
+    font-size: 1.1rem; 
+    background-color: white; 
+    width: 200px; 
+    height: 50px; 
+    font-family:'Poppins';
+    font-weight: 0.75em;
+    color:var(--secondary-color);
+}
 body{
     font-family:'Poppins', open-serif;
     background: var(--primary-color);

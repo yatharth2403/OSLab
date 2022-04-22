@@ -150,12 +150,16 @@ function summary(id,pagefaults,pages,frames){
                         <li>            
                             <a class="nav-links" href="fifo.html" title="FIFO">FIFO</a>
                          </li>
+                         <li>            
+                            <a class="nav-links" href="lifo.html"  title="LIFO">LIFO</a>
+                        </li>
                          <li>                                                      
                             <a class="nav-links" href="lru.html" title="LRU">LRU</a> 
                         </li>
                          <li>            
                             <a class="nav-links" href="opr.html" title="OPR">OPR</a>
-                        </li>                        
+                        </li>           
+                        <li><a class="nav-links" href="chart.html">GRAPHS</a></li>             
                     </ul>
                 </nav>
         <!----------------- </div> ----------------->
@@ -212,14 +216,18 @@ function summary(id,pagefaults,pages,frames){
                 </ul>
                 <p class="lrspc"> Number of Page Faults = 9</p>
         </div>
-        <div class="inputfromuser" style="text-align:center;">
-            <h1 id = "example-heading">Working example</h2>
+        <div class="inputfromuser container pu" style="text-align:center;">
+            <div class="buttn buttn-one">
+                <span>Working Example</span> 
+            </div>
+                <div class="pu">Instruction: For a reference string{a,b,c,d}, Enter in the format {a b c d}</div>
+                <div>Warning: The Reference String cannot be NEGATIVE and the Number of frames should be more than 0!</div>
             <br>
             
-            <input id="input1" style="width: 400px; height: 50px;" placeholder = "  Enter reference String">
+            <input id="input1" style="border:none ;border-radius:12px ;width: 400px; height: 50px; padding-left:15px; font-family:Lato; font-size:15px" placeholder = "  Enter Reference String">
             <br>
             <br>
-            <input id="input2" style="width: 400px; height: 50px ; " placeholder = "  Enter number of frames">
+            <input id="input2" style="border:none ;border-radius:12px; width: 400px; height: 50px ; padding-left:15px; font-family:Lato; font-size:15px" placeholder = "  Enter number of frames">
             <br>
             <br>
             <button onClick="LIFO()" id="Submit" style=" border-color:rgb(203, 148, 255);border-radius: 13px;font-size: 20px; background-color: rgb(200, 152, 255); width: 200px; height: 50px;" >Click to Visualize!</button>
@@ -231,7 +239,7 @@ function summary(id,pagefaults,pages,frames){
                 </table>
                 <br>
 				<br>
-				<div id="summary" class="d-flex justify-content-around font-weight-bold text-uppercase" style="font-size: 2em;"> </div>
+				<div id="summary" class="d-flex justify-content-around font-weight-bold text-uppercase" style="font-size: 1.5em"> </div>
                
 	        </div>
     </section> 
