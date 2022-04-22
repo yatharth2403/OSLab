@@ -60,7 +60,7 @@ function OPTIMAL(){
         }
     //no of frames input positive check
     let frames = document.getElementById("input2").value;
-    if(frames<0){
+    if(frames<=0){
         alert("Please Enter positive values")
         location.reload(true)
     }
@@ -210,8 +210,12 @@ function OPTIMAL(){
                     <p class="lrspc">The number of Page Faults = 5</p>
                 </p>
         </div>
-        <div class="inputfromuser" style="text-align:center;">
-            <h1 id = "example-heading">Working example</h2>
+        <div class="inputfromuser container pu" style="text-align:center;">
+            <div class="buttn buttn-one">
+                <span>Working Example</span> 
+            </div>
+                <div class="pu">Instruction: For a reference string{a,b,c,d}, Enter in the format {a b c d}</div>
+                <div>Warning: The Reference String cannot be NEGATIVE and the Number of frames should be more than 0!</div>
             <br>
             
             <input id="input1" style="border:none ;border-radius:12px ;width: 400px; height: 50px; padding-left:15px; font-family:Lato; font-size:15px" placeholder = "  Enter Reference String">

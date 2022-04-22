@@ -74,6 +74,7 @@ class Dequeue {
         return fr;
     }
 }
+// initialising object and specifying values
 class lru{
     constructor(capacity){
         this.capacity=capacity;
@@ -104,8 +105,8 @@ class lru{
     }
 }
 
-// document.getElementById("Submit").addEventListener("click",LRU);
 function LRU(){
+    /*fetching input and splitting on spaces*/
     let res = document.getElementById("input1").value.split(" ");
     for(let i = 0;i<res.length;i++){
             if(res[i]<=0){
@@ -123,10 +124,10 @@ function LRU(){
         
     let ref=[];
     for (let i = 0; i < res.length; i++) {
-        if (res[i] != " " && res[i] != "") {
+        if (res[i] != " " && res[i] != "") 
             ref.push(res[i]);
-        }
     }
+    /* creating table*/
     createTable("table",frames,ref);
     let obj = new lru(frames);
     for(let i=0;i<ref.length;i++){
@@ -135,6 +136,7 @@ function LRU(){
     }
     summary('summary',obj.pageFaults,obj.pageFaults+obj.pageHits,frames);
 }
+/*lru function and filling table*/
 function fillcol(tablename,col,objframes,n,searchindex){
     for(let i=1;i<=objframes.length;i++){
         let cell=document.getElementById(tablename+i+''+col);
@@ -149,7 +151,6 @@ function fillcol(tablename,col,objframes,n,searchindex){
         document.getElementById(tablename+(searchindex+1)+''+col).classList.add("bg-success","text-black");
     }
 }
-
 function createTable(tablename,frames,ref){
     document.getElementById(tablename).innerHTML="";
     let table = '<tr class="font-weight-bold"><td id="'+tablename+'00">Reference</td>';
@@ -173,7 +174,7 @@ function createTable(tablename,frames,ref){
     console.log(table);
     document.getElementById(tablename).innerHTML += table;
 }
-
+// filling out summary
 function summary(id,pagefaults,pages,frames){
     let summary ="";
     let missratio=(pagefaults / pages).toPrecision(2);
@@ -273,11 +274,14 @@ function summary(id,pagefaults,pages,frames){
                         <li>Then 6 replaces 1 and page fault occurs.</li>
                         <li>The number of Page Faults = 12</li>
                     </ul>
-                    <p class="lrspc">The number of Page Faults = 5</p>
                 </p>
         </div>
-        <div class="inputfromuser" style="text-align:center;">
-            <h1 id = "example-heading">Working example</h2>
+        <div class="inputfromuser container pu" style="text-align:center;">
+            <div class="buttn buttn-one">
+                <span>Working Example</span> 
+            </div>
+                <div class="pu">Instruction: For a reference string{a,b,c,d}, Enter in the format {a b c d}</div>
+                <div>Warning: The Reference String cannot be NEGATIVE and the Number of frames should be more than 0!</div>
             <br>
             
             <input id="input1" style="border:none ;border-radius:12px ;width: 400px; height: 50px; padding-left:15px; font-family:Lato; font-size:15px" placeholder = "  Enter Reference String">
