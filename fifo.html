@@ -46,7 +46,7 @@ function FIFO(){
             }
     }
     let frames = document.getElementById("input2").value;
-    if(frames<0){
+    if(frames<=0){
         alert("Please Enter positive values")
         location.reload(true)
     }
@@ -115,7 +115,7 @@ function summary(id,pagefaults,pages,frames){
     let summary ="";
     let missratio=(pagefaults / pages).toPrecision(2);
     let hitratio=(1-missratio).toPrecision(2);
-    summary+=`<div>Pages:${pages}</div>`;
+    summary+=`<div> :${pages}</div>`;
     summary+=`<div>Frames:${frames}</div>`;
     summary+=`<div>Hits:${pages-pagefaults}</div>`;
     summary+=`<div>Faults:${pagefaults}</div>`; 
