@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="pgstyle.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="screen" />
     <script type = "text/javascript">
+        
+     //--------------initialising object and specifying values--------------    
         class lifo{
     constructor(capacity){
         this.capacity=capacity;
@@ -16,6 +18,7 @@
         this.searchIndex=-1;
         this.frames=[];   
     }
+
     refer(token){
         this.searchIndex=this.frames.indexOf(token);
         if(this.searchIndex!=-1){

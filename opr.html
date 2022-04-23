@@ -9,6 +9,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="screen" />
     <script>
 
+//--------------initialising object and specifying values-------------- 
 class optimal{
     constructor(capacity){
         this.capacity=capacity;   
@@ -18,7 +19,7 @@ class optimal{
         this.frames=[];   //current col frame pages
         this.sr=[]   
     }
-    //optimal code 
+   
     refer(token,remaining){
         this.searchIndex = this.frames.indexOf(token);
         if(this.searchIndex!=-1)
@@ -47,11 +48,16 @@ class optimal{
         }
     }
 }
-//Command for Submit key
-// document.getElementById("Submit").addEventListener("click",OPTIMAL);
+//--------------Command for Submit key------------------
+ document.getElementById("Submit").addEventListener("click",OPTIMAL);
+
+
+ //--------------defining function OPTIMAL--------------
+
 function OPTIMAL(){
-    //Reference String input neagative check
+    
     let res = document.getElementById("input1").value.split(" ");
+    //getting element using id input1 is the space separated string entered by the user.
     for(let i = 0;i<res.length;i++)
         if(res[i]<0){
             alert ("Please Enter positive values")
@@ -65,11 +71,16 @@ function OPTIMAL(){
         location.reload(true)
     }
     else{        
+        //gettind element using id input2 is the nummber of frames.
+
         let ref=[];
         for (let i = 0; i < res.length; i++) {
             if (res[i] != " " && res[i] != "")
                 ref.push(res[i]);
         }
+
+ //------------------calling fucntion table----------------
+
         createTable("table",frames,ref);
         let obj = new optimal(frames);
         for(let i=0;i<ref.length;i++){
@@ -78,7 +89,8 @@ function OPTIMAL(){
         }
         summary('summary',obj.pageFaults,obj.pageFaults+obj.pageHits,frames);
     }
-    /*filling table*/
+    //----------function fillcol is called which creates new columns and fills it--------------
+
     function fillcol(tablename,col,objframes,n,searchindex){
         for(let i=1;i<=objframes.length;i++){
             let cell=document.getElementById(tablename+i+''+col);
@@ -93,7 +105,9 @@ function OPTIMAL(){
             document.getElementById(tablename+(searchindex+1)+''+col).classList.add("bg-success","text-white");
         }
     }
-    /* designing table*/
+
+    //-----------------function create table uses javascript to create a table--------------
+
     function createTable(tablename,frames,ref){
         document.getElementById(tablename).innerHTML="";
         let table = '<tr class="font-weight-bold"><td id="' +tablename+' 00">Reference</td>';
@@ -114,7 +128,8 @@ function OPTIMAL(){
         console.log(table);
         document.getElementById(tablename).innerHTML += table;
     }
-// filling out summary below the table
+//----------------function summary uses the values and does calculations to find ratios--------------
+
     function summary(id,pagefaults,pages,frames){
         let summary ="";
         let missratio=(pagefaults / pages).toPrecision(2);

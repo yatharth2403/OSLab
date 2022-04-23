@@ -8,13 +8,16 @@
     <link rel="stylesheet" href="pgstyle.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="screen" />
     <script>
-        class node {
+       
+       class node {
     constructor(data) {
         this.data = data;
         this.l = null;
         this.r = null;
     }
 }
+
+//--------------defining additional functions-------------- 
 class Dequeue {
     constructor() {
         this.left = null;
@@ -74,7 +77,8 @@ class Dequeue {
         return fr;
     }
 }
-// initialising object and specifying values
+
+//--------------initialising object and specifying values-------------- 
 class lru{
     constructor(capacity){
         this.capacity=capacity;
@@ -105,9 +109,12 @@ class lru{
     }
 }
 
+//--------------defining function LRU--------------
+
 function LRU(){
-    /*fetching input and splitting on spaces*/
+    
     let res = document.getElementById("input1").value.split(" ");
+    //getting element using id input1 is the space separated string entered by the user.
     for(let i = 0;i<res.length;i++){
             if(res[i]<=0){
                 alert ("Please Enter positive values")
@@ -121,13 +128,15 @@ function LRU(){
         location.reload(true)
     }
     else{
+        //gettind element using id input2 is the nummber of frames.
         
     let ref=[];
     for (let i = 0; i < res.length; i++) {
         if (res[i] != " " && res[i] != "") 
             ref.push(res[i]);
     }
-    /* creating table*/
+    
+//------------------calling fucntion table----------------
     createTable("table",frames,ref);
     let obj = new lru(frames);
     for(let i=0;i<ref.length;i++){
@@ -136,7 +145,8 @@ function LRU(){
     }
     summary('summary',obj.pageFaults,obj.pageFaults+obj.pageHits,frames);
 }
-/*lru function and filling table*/
+
+//----------function fillcol is called which creates new columns and fills it--------------
 function fillcol(tablename,col,objframes,n,searchindex){
     for(let i=1;i<=objframes.length;i++){
         let cell=document.getElementById(tablename+i+''+col);
@@ -151,6 +161,9 @@ function fillcol(tablename,col,objframes,n,searchindex){
         document.getElementById(tablename+(searchindex+1)+''+col).classList.add("bg-success","text-black");
     }
 }
+
+//-----------------function create table uses javascript to create a table--------------
+
 function createTable(tablename,frames,ref){
     document.getElementById(tablename).innerHTML="";
     let table = '<tr class="font-weight-bold"><td id="'+tablename+'00">Reference</td>';
@@ -174,7 +187,8 @@ function createTable(tablename,frames,ref){
     console.log(table);
     document.getElementById(tablename).innerHTML += table;
 }
-// filling out summary
+
+//----------------function summary uses the values and does calculations to find ratios--------------
 function summary(id,pagefaults,pages,frames){
     let summary ="";
     let missratio=(pagefaults / pages).toPrecision(2);
