@@ -72,8 +72,6 @@
                 if(this.frames.length>this.capacity)
                     this.frames.shift()
             }
-            // else 
-           //     this.pageHits++;
         }
     }
     class lifo{
@@ -97,100 +95,7 @@
         }
         }
     }
-//     class node {
-//         constructor(data) {
-//             this.data = data;
-//             this.l = null;
-//             this.r = null;
-//         }
-//     }
-//     class Dequeue {
-//         constructor() {
-//             this.left = null;
-//             this.right = null;
-//             this.size=0;
-//         }
-//         addFront(x) {
-//             let newNode = new node(x);
-//             newNode.r =this.left;
-//             if(this.left!=null)
-//                 this.left.l = newNode;
-//             else{
-//                 this.right=newNode;
-//             }
-//             this.left=newNode;
-//             this.size++;
-//         }
-//         deleteLast(){
-//             let tmp=this.right;
-//             this.right=tmp.l;
-//             this.right.r=null;
-//             this.size--;
-//         }
-//         delete(x) {
-//             if(x==null) return;
-//             //first element
-//             if(x==this.left && x==this.right){
-//                 this.left=null;
-//                 this.right=null;
-//                 this.size--;
-//                 return;
-//             }
-//             if(x==this.left){
-//                 this.left=x.r;
-//                 x.r.l=null;
-//                 this.size--;
-//                 return;
-//             }
-//             if(x==this.right){
-//                 this.right=x.l;
-//                 this.right.r=null;
-//                 this.size--;
-//                 return;
-//             }
-//             x.l.r=x.r;
-//             x.r.l=x.l;
-//             this.size--;
-//         }
-//         display(){
-//             let fr=[];
-//             let temp=this.left;
-//             while(temp!=null){
-//                 fr.push(temp.data);
-//                 temp=temp.r;
-//             }
-//             return fr;
-//         }
-//     }
-// class lru{
-//     constructor(capacity){
-//         this.capacity=capacity;
-//         this.pageFaults=0;
-//         this.pageHits=0;
-//         this.searchIndex=-1; 
-//         this.map = new Map();
-//         this.dequeue = new Dequeue();   
-//     }
-//     refer3(token) {
-//         if(this.map.has(token)){
-//             this.pageHits++;
-//             this.searchIndex=0;
-//             this.dequeue.delete(this.map.get(token));
-//             this.map.delete(token);
-//         }
-//         else{ 
-//             this.pageFaults++;
-//             this.searchIndex=-1;
-//             if(this.capacity==this.dequeue.size){
-//                 this.dequeue.deleteLast();
-//                 this.map.delete(this.frames[this.frames.length-1]);
-//             }
-//         }
-//         this.dequeue.addFront(token);
-//         this.map.set(token,this.dequeue.left);
-//         this.frames =this.dequeue.display();   
-//     }
-// }
+
     class opr{
         constructor(capacity){
             this.capacity=capacity;   
@@ -254,25 +159,19 @@
                     if (res[i] != " " && res[i] != "")
                         ref.push(res[i]);
                 }
-                //for every no. of frames
-                
-                // var ydata3=[];
                     xdata.push(frames);
 
                     let obj1 = new fifo(frames);
                     let obj2 = new lifo(frames);
-                    // let obj3 = new lru(frames);
                     let obj4 = new opr(frames);
 
                     for(let i=0;i<ref.length;i++){
                         obj1.refer1(ref[i]);
                         obj2.refer2(ref[i]);
-                        // obj3.refer3(ref[i]);
                         obj4.refer4(ref[i],ref.slice(i+1));
                     }
                     ydata1.push(obj1.pageFaults);
                     ydata2.push(obj2.pageFaults);
-                    // ydata3.push(obj3.pageFaults);
                     ydata4.push(obj4.pageFaults);
                     frames--;
                }                     
@@ -299,8 +198,6 @@
             name:'lifo'
         }      
         var trace3 = {
-            // x:xdata,
-            // y:ydata;
             x:[1,2,3,4,5,6],
             y:[1,2,3,4,1,2,5,1,2,3,4,5],
             mode:'lines',
@@ -314,11 +211,8 @@
             line: {width:3},
             name:'opr'
         }                       
-        // data.push(trace1,trace2,trace3,trace4);
         data.push(trace1,trace2,trace3,trace4);               
         var layout = {
-            // width: 800,
-            // height: 600,
             plot_bgcolor:'white',
             title:'Page Replacement Algorithms ',
             xaxis: {title: 'No. of Frames'},
@@ -328,5 +222,7 @@
 
     }   
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script src="theme.js"></script>
 </body>
 </html>
