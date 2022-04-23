@@ -9,7 +9,10 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="screen" />
     <script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>
     <script>
-        class fifo{
+       
+//--------------initialising object and specifying values-------------  
+
+       class fifo{
     constructor(capacity){
         this.capacity=capacity;
         this.pageFaults=0;
@@ -18,7 +21,6 @@
         this.frames=[];
     }
 
-   /* initialising object and specifying values */
     refer(token) {
         this.searchIndex=this.frames.indexOf(token);
         if(this.searchIndex==-1){
@@ -33,11 +35,15 @@
     }
 }
 
-/*fetching input and splitting on spaces*/
-document.getElementById("Submit").addEventListener("click",FIFO);
-function FIFO(){
 
+document.getElementById("Submit").addEventListener("click",FIFO);
+
+//--------------defining function FIFO--------------
+
+function FIFO(){
+   
     let res = document.getElementById("input1").value.split(" ");
+        //getting element using id input1 is the space separated string entered by the user.
     for(let i = 0;i<res.length;i++){
             if(res[i]<0){
                 alert ("Please Enter positive values")
@@ -51,7 +57,7 @@ function FIFO(){
         location.reload(true)
     }
     else{
-        
+        //gettind element using id input2 is the nummber of frames.
     
     let ref=[];
     for (let i = 0; i < res.length; i++) {
@@ -60,7 +66,8 @@ function FIFO(){
         }
     }
 
-    /* creating table*/
+    //------------------calling fucntion table----------------
+
     createTable("table",frames,ref);
     let obj = new fifo(frames);
     for(let i=0;i<ref.length;i++){
@@ -69,7 +76,9 @@ function FIFO(){
     }
     summary('summary',obj.pageFaults,obj.pageFaults+obj.pageHits,frames);
 }
-/*fifo function and filling table*/
+
+//----------function fillcol is called which creates new columns and fills it--------------
+
 function fillcol(tablename,col,objframes,n,searchindex){
     for(let i=1;i<=objframes.length;i++){
         let cell=document.getElementById(tablename+i+''+col);
@@ -86,7 +95,8 @@ function fillcol(tablename,col,objframes,n,searchindex){
     }
 }
 
-//designing table
+//-----------------function create table uses javascript to create a table--------------- 
+
 function createTable(tablename,frames,ref){
     document.getElementById(tablename).innerHTML="";
     let table = '<tr><td id="'+tablename+'00" style="font-weight:bolder;">Reference</td>';
@@ -110,7 +120,9 @@ function createTable(tablename,frames,ref){
     console.log(table);
     document.getElementById(tablename).innerHTML += table;
 }
-// filling out summary
+
+//----------------function summary uses the values and does calculations to find ratios--------------
+
 function summary(id,pagefaults,pages,frames){
     let summary ="";
     let missratio=(pagefaults / pages).toPrecision(2);
