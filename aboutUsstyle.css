@@ -44,11 +44,11 @@ h3{
 }
 .navbar{
     background-color:rgb(170, 142, 247);
-    color:var#333;
+    color:#333;
     height:80px;
 }
 .navbar a{
-    color:var#333;
+    color:#333;
     padding: 10px;
     margin:0 5px;
 }
